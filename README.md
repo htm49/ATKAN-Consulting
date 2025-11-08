@@ -57,6 +57,7 @@ Chaque mission est conçue sur mesure, avec un objectif clair :
 ---
 
 ## Nous contacter
+Mail: contact@atkanconsulting.fr
 tel: 06-50-41-71-52
 🔗 [LinkedIn ATKAN](https://www.linkedin.com/company/atkan-consulting)  
  
