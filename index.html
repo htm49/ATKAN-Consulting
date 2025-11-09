@@ -175,6 +175,31 @@
             color: #ffffff !important;
         }
 
+        /* BOUTON LINKEDIN */
+        .linkedin-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #0077B5, #00A0DC);
+            color: #ffffff !important;
+            padding: 15px 35px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(0, 119, 181, 0.3);
+            margin: 0.5rem;
+        }
+
+        .linkedin-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 119, 181, 0.5);
+            background: linear-gradient(135deg, #00A0DC, #0077B5);
+            color: #ffffff !important;
+        }
+
         /* BOUTON MENTIONS LÉGALES */
         .legal-button {
             display: inline-block;
@@ -310,6 +335,32 @@
         }
 
         .callback-section p {
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* SECTION RÉSEAUX SOCIAUX */
+        .social-section {
+            background: linear-gradient(135deg, #0e1a2b, #000);
+            color: #0077B5;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            margin: 3rem 0;
+            border: 1px solid rgba(0, 119, 181, 0.3);
+        }
+
+        .social-section h2 {
+            color: #0077B5;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .social-section p {
             color: #ffffff;
             margin-bottom: 1.5rem;
             font-size: 1.1rem;
@@ -478,7 +529,7 @@
                 padding: 1rem;
             }
 
-            .cta-button, .callback-button {
+            .cta-button, .callback-button, .linkedin-button {
                 padding: 12px 25px;
                 font-size: 1rem;
             }
@@ -520,7 +571,7 @@
         }
 
         /* Style pour s'assurer que les boutons sont visibles */
-        .cta-button:focus, .callback-button:focus, .legal-button:focus {
+        .cta-button:focus, .callback-button:focus, .legal-button:focus, .linkedin-button:focus {
             outline: 2px solid #ffd700;
             outline-offset: 2px;
         }
@@ -533,8 +584,7 @@
             <img src="logo.png.jpg" alt="ATKAN Consulting - Formation pédagogique innovante">
             <div>
                 <h1>ATKAN CONSULTING</h1>
-                 <p>L’intelligence humaine au cœur de la transformation</p>
-                 <p>Pédagogies innovantes</p>
+                <p>Pédagogies innovantes</p>
                 <p>Action & Accomplissement</p>
             </div>
         </div>
@@ -558,14 +608,10 @@
     <main>
         <!-- SECTION HERO -->
         <section class="hero animate-in" id="accueil">
-            <h2>Bienvenue chez ATKAN CONSULTING - L’intelligence humaine au cœur de la transformation.</h2>
-            
-            <p>Ici, pas de recettes miracles ni de modèles préfabriqués.
-Chaque organisation a son rythme, sa culture, ses défis.
-C’est pourquoi nous concevons, avec vous, des stratégies d’apprentissage et d’innovation qui allient pédagogie active, intelligence artificielle et ancrage terrain.
-Notre ambition : transformer vos pratiques, développer vos talents, et inscrire durablement le changement dans la réalité de vos équipes.
-</p>
-           
+            <h2>Bienvenue chez ATKAN CONSULTING</h2>
+            <p>Chez ATKAN CONSULTING, pas de solutions toutes faites</p>
+            <p>Chaque organisation est unique. C'est pourquoi nous co-construisons chaque mission avec vous, pour répondre concrètement à vos enjeux et générer un impact humain, durable et mesurable.</p>
+            <p>Dans un monde professionnel en constante mutation, nous croyons à la force de l'intelligence collective, à l'adaptation sur le terrain, et à une approche profondément ancrée dans la réalité de vos équipes.</p>
             
             <!-- BOUTON CORRIGÉ -->
             <div class="button-container">
@@ -574,6 +620,9 @@ Notre ambition : transformer vos pratiques, développer vos talents, et inscrire
                 </a>
                 <a href="https://calendly.com/contact-atkanconsulting/30min" class="callback-button" target="_blank" rel="noopener" style="color: #ffffff !important; text-decoration: none;">
                     📞 Être rappelé
+                </a>
+                <a href="https://www.linkedin.com/company/atkan-consulting" class="linkedin-button" target="_blank" rel="noopener" style="color: #ffffff !important; text-decoration: none;">
+                    💼 LinkedIn
                 </a>
             </div>
         </section>
@@ -640,6 +689,7 @@ Notre ambition : transformer vos pratiques, développer vos talents, et inscrire
             <div class="contact-info">
                 <p><strong>Email :</strong> <a href="mailto:contact@atkanconsulting.fr">contact@atkanconsulting.fr</a></p>
                 <p><strong>Téléphone :</strong> <a href="tel:+33650417152">+33 6 50 41 71 52</a></p>
+                <p><strong>LinkedIn :</strong> <a href="https://www.linkedin.com/company/atkan-consulting" target="_blank" rel="noopener">Notre page LinkedIn</a></p>
                 <p>Prêt(e) à transformer votre organisation ? Contactez-nous pour un échange personnalisé.</p>
                 
                 <div class="button-container">
@@ -656,8 +706,36 @@ Notre ambition : transformer vos pratiques, développer vos talents, et inscrire
                        style="color: #ffffff !important; text-decoration: none;">
                        📞 Être rappelé
                     </a>
+
+                    <a href="https://www.linkedin.com/company/atkan-consulting" 
+                       class="linkedin-button" 
+                       target="_blank" 
+                       rel="noopener"
+                       style="color: #ffffff !important; text-decoration: none;">
+                       💼 Nous suivre sur LinkedIn
+                    </a>
                 </div>
             </div>
+        </section>
+
+        <!-- NOUVELLE SECTION RÉSEAUX SOCIAUX -->
+        <section class="social-section animate-in">
+            <h2>💼 Rejoignez-nous sur LinkedIn</h2>
+            <p>Suivez ATKAN Consulting sur LinkedIn pour rester informé des dernières actualités en formation pédagogique, découvrir nos conseils en innovation éducative et échanger avec notre communauté de professionnels.</p>
+            
+            <div class="button-container">
+                <a href="https://www.linkedin.com/company/atkan-consulting" 
+                   class="linkedin-button" 
+                   target="_blank" 
+                   rel="noopener"
+                   style="color: #ffffff !important; text-decoration: none; font-size: 1.2rem; padding: 18px 40px;">
+                   🔗 Suivre sur LinkedIn
+                </a>
+            </div>
+            
+            <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #cccccc;">
+                <em>Actualités pédagogiques • Conseils experts • Réseautage professionnel</em>
+            </p>
         </section>
 
         <!-- NOUVELLE SECTION RAPPEL -->
@@ -700,7 +778,7 @@ Notre ambition : transformer vos pratiques, développer vos talents, et inscrire
                 <h3>1. Éditeur du site</h3>
                 <p>Le présent site est édité par :</p>
                 <p><strong>ATKAN CONSULTING</strong><br>
-               
+                Entreprise individuelle (micro-entreprise)<br>
                 SIRET : 989 677 141 00016<br>
                 SIREN : 989 677 141<br>
                 TVA intracommunautaire : FR48 989 677 141<br>
@@ -711,7 +789,7 @@ Notre ambition : transformer vos pratiques, développer vos talents, et inscrire
                 <p>Directeur de la publication : Haithem REKIK, Fondateur et Dirigeant.</p>
 
                 <h3>2. Hébergeur</h3>
-                <p>Le site www.atkanconsulting.fr est hébergé par :</p>
+                <p>Le site www.atkan-consulting.fr est hébergé par :</p>
                 <p><strong>Squarespace Ireland Ltd.</strong><br>
                 Adresse : Le Pole House, Ship Street Great, Dublin 8, Irlande<br>
                 Téléphone : +353 1 524 0685<br>
@@ -754,10 +832,13 @@ Notre ambition : transformer vos pratiques, développer vos talents, et inscrire
 
     <!-- FOOTER -->
     <footer>
-        <p>© 2025 ATKAN CONSULTING. Tous droits réservés.©</p>
+        <p>© 2024 ATKAN CONSULTING. Tous droits réservés.</p>
         <div class="footer-links">
             <a href="https://calendly.com/contact-atkanconsulting/30min" target="_blank" rel="noopener">
-                
+                📞 Prendre rendez-vous en ligne
+            </a>
+            <a href="https://www.linkedin.com/company/atkan-consulting" target="_blank" rel="noopener">
+                💼 LinkedIn
             </a>
             <button class="legal-button" id="legal-modal-open-footer" style="background: transparent; border: none; color: #ffd700; cursor: pointer;">
                 Mentions Légales
@@ -849,7 +930,7 @@ Notre ambition : transformer vos pratiques, développer vos talents, et inscrire
             }, observerOptions);
 
             // Observer les éléments avec animation
-            document.querySelectorAll('.service, .hero, .faq-section, .contact-section, .callback-section').forEach(el => {
+            document.querySelectorAll('.service, .hero, .faq-section, .contact-section, .callback-section, .social-section').forEach(el => {
                 el.style.opacity = '0';
                 el.style.transform = 'translateY(20px)';
                 el.style.transition = 'all 0.6s ease-out';
@@ -857,7 +938,7 @@ Notre ambition : transformer vos pratiques, développer vos talents, et inscrire
             });
 
             // Vérification que les boutons CTA sont cliquables
-            document.querySelectorAll('.cta-button, .callback-button').forEach(button => {
+            document.querySelectorAll('.cta-button, .callback-button, .linkedin-button').forEach(button => {
                 button.addEventListener('click', function(e) {
                     console.log('Bouton cliqué:', this.getAttribute('href'));
                     // Le comportement par défaut (lien) est conservé
@@ -868,6 +949,14 @@ Notre ambition : transformer vos pratiques, développer vos talents, et inscrire
             document.querySelectorAll('a[href*="calendly.com"]').forEach(link => {
                 link.addEventListener('click', function() {
                     console.log('Clic sur le lien Calendly détecté');
+                    // Ici vous pourriez ajouter Google Analytics ou autre tracking
+                });
+            });
+
+            // Tracking des clics sur LinkedIn (optionnel)
+            document.querySelectorAll('a[href*="linkedin.com"]').forEach(link => {
+                link.addEventListener('click', function() {
+                    console.log('Clic sur le lien LinkedIn détecté');
                     // Ici vous pourriez ajouter Google Analytics ou autre tracking
                 });
             });
