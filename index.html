@@ -54,7 +54,7 @@
     <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
 
     <style>
-        /* RESET ET BASE */
+        /* === RESET ET BASE === */
         * {
             margin: 0;
             padding: 0;
@@ -70,21 +70,50 @@
             --success: #4CAF50;
             --linkedin: #0077B5;
             --newsletter: #9C27B0;
+            --text-primary: #ffffff;
+            --text-secondary: #cccccc;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             line-height: 1.6;
             background: var(--dark-bg);
-            color: var(--cream);
+            color: var(--text-primary);
             min-height: 100vh;
             overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
         }
 
-        /* HEADER */
+        /* === SKIP LINK - ACCESSIBILITÉ === */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: var(--gold);
+            color: var(--dark-bg);
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 0 0 4px 4px;
+            z-index: 10000;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* === HEADER === */
         header {
             background: linear-gradient(135deg, var(--gold), #333);
-            color: black;
+            color: var(--dark-bg);
             padding: 1rem;
             text-align: center;
         }
@@ -94,28 +123,30 @@
             flex-direction: column;
             align-items: center;
             gap: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         header img {
+            width: 80px;
             height: 80px;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            max-width: 100%;
-            height: auto;
+            box-shadow: var(--shadow);
+            object-fit: cover;
         }
 
         header h1 {
             font-size: clamp(1.5rem, 4vw, 2rem);
             font-weight: 700;
-            color: #000;
+            color: var(--dark-bg);
         }
 
         header p {
             font-style: italic;
-            color: #000;
+            color: var(--dark-bg);
         }
 
-        /* NAVIGATION */
+        /* === NAVIGATION === */
         nav {
             background: var(--dark-bg);
             padding: 1rem 0;
@@ -131,6 +162,16 @@
             padding: 0 1rem;
         }
 
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--cream);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
         nav ul {
             list-style: none;
             display: flex;
@@ -142,82 +183,84 @@
         nav ul li a {
             color: var(--cream);
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 600;
             padding: 0.5rem 1rem;
             border-radius: 20px;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             display: block;
         }
 
         nav ul li a:hover,
         nav ul li a:focus {
             background: var(--cream);
-            color: #000;
-            outline: none;
+            color: var(--dark-bg);
+            outline: 2px solid var(--light-gold);
         }
 
         .catalog-btn {
             background: linear-gradient(135deg, var(--cream), var(--light-gold));
-            color: #000 !important;
-            font-weight: bold;
+            color: var(--dark-bg) !important;
+            font-weight: 700;
         }
 
-        /* CONTENU PRINCIPAL */
+        /* === CONTENU PRINCIPAL === */
         main {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem 1rem;
+            padding: 1rem;
         }
 
-        /* SECTION HERO */
+        /* === SECTION HERO === */
         .hero {
             background: var(--dark-bg);
             color: var(--light-gold);
-            padding: 3rem 2rem;
-            border-radius: 20px;
+            padding: 2rem 1rem;
+            border-radius: 16px;
             text-align: center;
             margin-bottom: 2rem;
             border: 1px solid rgba(255, 215, 0, 0.3);
         }
 
         .hero h2 {
-            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            font-size: clamp(1.5rem, 5vw, 2.2rem);
             margin-bottom: 1.5rem;
             color: var(--light-gold);
+            line-height: 1.3;
         }
 
         .hero p {
             font-size: clamp(1rem, 2.5vw, 1.1rem);
             margin-bottom: 1rem;
-            color: #ffffff;
+            color: var(--text-primary);
             line-height: 1.7;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        /* BOUTONS */
+        /* === BOUTONS === */
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 15px 35px;
+            padding: 14px 28px;
             border-radius: 25px;
             text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            border: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid transparent;
             cursor: pointer;
-            font-size: 1.1rem;
+            font-size: 1rem;
             margin: 0.5rem;
             text-align: center;
-            min-height: 54px;
+            min-height: 50px;
             gap: 0.5rem;
+            min-width: 160px;
         }
 
         .cta-button {
             background: linear-gradient(135deg, var(--cream), var(--light-gold));
-            color: #000000 !important;
+            color: var(--dark-bg) !important;
             box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
         }
 
@@ -226,12 +269,12 @@
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
             background: linear-gradient(135deg, var(--light-gold), var(--cream));
-            color: #000000 !important;
+            outline: 2px solid var(--light-gold);
         }
 
         .callback-button {
             background: linear-gradient(135deg, var(--success), #45a049);
-            color: #ffffff !important;
+            color: var(--text-primary) !important;
             box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
         }
 
@@ -240,12 +283,12 @@
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(76, 175, 80, 0.5);
             background: linear-gradient(135deg, #45a049, var(--success));
-            color: #ffffff !important;
+            outline: 2px solid var(--success);
         }
 
         .linkedin-button {
             background: linear-gradient(135deg, var(--linkedin), #00A0DC);
-            color: #ffffff !important;
+            color: var(--text-primary) !important;
             box-shadow: 0 4px 15px rgba(0, 119, 181, 0.3);
         }
 
@@ -254,12 +297,12 @@
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(0, 119, 181, 0.5);
             background: linear-gradient(135deg, #00A0DC, var(--linkedin));
-            color: #ffffff !important;
+            outline: 2px solid var(--linkedin);
         }
 
         .newsletter-button {
             background: linear-gradient(135deg, var(--newsletter), #7B1FA2);
-            color: #ffffff !important;
+            color: var(--text-primary) !important;
             box-shadow: 0 4px 15px rgba(156, 39, 176, 0.3);
         }
 
@@ -268,7 +311,7 @@
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(156, 39, 176, 0.5);
             background: linear-gradient(135deg, #7B1FA2, var(--newsletter));
-            color: #ffffff !important;
+            outline: 2px solid var(--newsletter);
         }
 
         .legal-button {
@@ -277,8 +320,8 @@
             padding: 10px 20px;
             border-radius: 20px;
             text-decoration: none;
-            font-weight: normal;
-            transition: all 0.3s ease;
+            font-weight: 500;
+            transition: var(--transition);
             border: 1px solid var(--light-gold);
             cursor: pointer;
             font-size: 0.9rem;
@@ -289,10 +332,10 @@
         .legal-button:focus {
             background: rgba(255, 215, 0, 0.1);
             transform: translateY(-2px);
-            outline: none;
+            outline: 2px solid var(--light-gold);
         }
 
-        /* CONTAINER POUR LES BOUTONS */
+        /* === CONTAINER POUR LES BOUTONS === */
         .button-container {
             display: flex;
             justify-content: center;
@@ -301,39 +344,41 @@
             margin-top: 2rem;
         }
 
-        /* SECTIONS */
+        /* === SECTIONS === */
         .section-title {
             text-align: center;
-            margin: 3rem 0 2rem 0;
+            margin: 2rem 0 1.5rem 0;
             color: var(--cream);
-            font-size: clamp(1.8rem, 4vw, 2.2rem);
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            line-height: 1.3;
         }
 
-        /* SERVICES */
+        /* === SERVICES === */
         .services {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
         }
 
         .service {
             background: linear-gradient(135deg, var(--medium-bg), var(--dark-bg));
-            padding: 2rem;
-            border-radius: 20px;
+            padding: 1.5rem;
+            border-radius: 16px;
             text-align: center;
             border: 1px solid rgba(255, 215, 0, 0.2);
-            transition: transform 0.3s ease;
+            transition: var(--transition);
         }
 
         .service:hover {
             transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
         }
 
         .service h3 {
             color: var(--cream);
             margin-bottom: 1rem;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
         }
 
         .service p {
@@ -341,39 +386,39 @@
             line-height: 1.6;
         }
 
-        /* FAQ */
+        /* === FAQ === */
         .faq-section {
             background: linear-gradient(135deg, var(--medium-bg), var(--dark-bg));
-            padding: 3rem 2rem;
-            border-radius: 20px;
-            margin: 3rem 0;
+            padding: 2rem 1rem;
+            border-radius: 16px;
+            margin: 2rem 0;
             border: 1px solid rgba(255, 215, 0, 0.2);
         }
 
         .faq-item {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             border-bottom: 1px solid rgba(255, 215, 0, 0.2);
             padding-bottom: 1rem;
         }
 
         .faq-question {
             color: var(--gold);
-            font-weight: bold;
-            font-size: 1.2rem;
+            font-weight: 600;
+            font-size: 1.1rem;
             margin-bottom: 0.5rem;
         }
 
         .faq-answer {
-            color: #ffffff;
+            color: var(--text-primary);
             line-height: 1.6;
         }
 
-        /* CONTACT */
+        /* === CONTACT === */
         .contact-section {
             background: linear-gradient(135deg, var(--medium-bg), var(--dark-bg));
             color: var(--light-gold);
-            padding: 3rem 2rem;
-            border-radius: 20px;
+            padding: 2rem 1rem;
+            border-radius: 16px;
             text-align: center;
             border: 1px solid rgba(255, 215, 0, 0.2);
         }
@@ -386,34 +431,37 @@
         .contact-info a {
             color: var(--light-gold);
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: var(--transition);
+            padding: 0.25rem;
+            border-radius: 4px;
         }
 
         .contact-info a:hover,
         .contact-info a:focus {
             text-decoration: underline;
-            outline: none;
+            outline: 2px solid var(--light-gold);
+            background: rgba(255, 215, 0, 0.1);
         }
 
-        /* SECTION RAPPEL */
+        /* === SECTIONS SPÉCIALES === */
         .callback-section {
             background: linear-gradient(135deg, #1a2a1a, var(--dark-bg));
             color: var(--success);
-            padding: 3rem 2rem;
-            border-radius: 20px;
+            padding: 2rem 1rem;
+            border-radius: 16px;
             text-align: center;
-            margin: 3rem 0;
+            margin: 2rem 0;
             border: 1px solid rgba(76, 175, 80, 0.3);
         }
 
         .callback-section h2 {
             color: var(--success);
             margin-bottom: 1.5rem;
-            font-size: clamp(1.8rem, 4vw, 2rem);
+            font-size: clamp(1.5rem, 4vw, 1.8rem);
         }
 
         .callback-section p {
-            color: #ffffff;
+            color: var(--text-primary);
             margin-bottom: 1.5rem;
             font-size: 1.1rem;
             max-width: 600px;
@@ -421,25 +469,24 @@
             margin-right: auto;
         }
 
-        /* SECTION RÉSEAUX SOCIAUX */
         .social-section {
             background: linear-gradient(135deg, #0e1a2b, var(--dark-bg));
             color: var(--linkedin);
-            padding: 3rem 2rem;
-            border-radius: 20px;
+            padding: 2rem 1rem;
+            border-radius: 16px;
             text-align: center;
-            margin: 3rem 0;
+            margin: 2rem 0;
             border: 1px solid rgba(0, 119, 181, 0.3);
         }
 
         .social-section h2 {
             color: var(--linkedin);
             margin-bottom: 1.5rem;
-            font-size: clamp(1.8rem, 4vw, 2rem);
+            font-size: clamp(1.5rem, 4vw, 1.8rem);
         }
 
         .social-section p {
-            color: #ffffff;
+            color: var(--text-primary);
             margin-bottom: 1.5rem;
             font-size: 1.1rem;
             max-width: 600px;
@@ -447,25 +494,24 @@
             margin-right: auto;
         }
 
-        /* SECTION NEWSLETTER */
         .newsletter-section {
             background: linear-gradient(135deg, #2a1a3a, var(--dark-bg));
             color: var(--newsletter);
-            padding: 3rem 2rem;
-            border-radius: 20px;
+            padding: 2rem 1rem;
+            border-radius: 16px;
             text-align: center;
-            margin: 3rem 0;
+            margin: 2rem 0;
             border: 1px solid rgba(156, 39, 176, 0.3);
         }
 
         .newsletter-section h2 {
             color: var(--newsletter);
             margin-bottom: 1.5rem;
-            font-size: clamp(1.8rem, 4vw, 2rem);
+            font-size: clamp(1.5rem, 4vw, 1.8rem);
         }
 
         .newsletter-section p {
-            color: #ffffff;
+            color: var(--text-primary);
             margin-bottom: 1.5rem;
             font-size: 1.1rem;
             max-width: 600px;
@@ -473,7 +519,7 @@
             margin-right: auto;
         }
 
-        /* MODALS */
+        /* === MODALS === */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -485,7 +531,7 @@
             backdrop-filter: blur(5px);
             z-index: 2000;
             opacity: 0;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             overflow-y: auto;
             padding: 1rem;
         }
@@ -502,12 +548,12 @@
             max-width: 600px;
             width: 90%;
             max-height: 85vh;
-            background: linear-gradient(135deg, var(--medium-bg), var(--dark-bg));
+            background: var(--dark-bg);
             border: 2px solid var(--gold);
-            border-radius: 20px;
+            border-radius: 16px;
             box-shadow: 0 20px 60px rgba(212, 175, 55, 0.3);
             transform: scale(0.8) translateY(50px);
-            transition: all 0.3s ease;
+            transition: var(--transition);
             overflow: hidden;
         }
 
@@ -517,17 +563,17 @@
 
         .modal-close {
             position: absolute;
-            top: 15px;
-            right: 20px;
+            top: 12px;
+            right: 12px;
             background: none;
             border: none;
             color: var(--gold);
-            font-size: 28px;
+            font-size: 24px;
             cursor: pointer;
             z-index: 2001;
-            transition: all 0.3s ease;
-            width: 40px;
-            height: 40px;
+            transition: var(--transition);
+            width: 36px;
+            height: 36px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -539,18 +585,18 @@
         .modal-close:focus {
             background: rgba(212, 175, 55, 0.2);
             transform: rotate(90deg);
-            outline: none;
+            outline: 2px solid var(--gold);
         }
 
         .modal-content {
-            padding: 2rem;
-            max-height: calc(85vh - 4rem);
+            padding: 1.5rem;
+            max-height: calc(85vh - 3rem);
             overflow-y: auto;
         }
 
-        /* MODAL NEWSLETTER SPÉCIFIQUE - FOND NOIR */
+        /* === MODAL NEWSLETTER SPÉCIFIQUE === */
         #newsletter-modal .modal {
-            background: #000000 !important;
+            background: var(--dark-bg) !important;
             border: 2px solid var(--newsletter);
             box-shadow: 0 20px 60px rgba(156, 39, 176, 0.4);
         }
@@ -562,44 +608,45 @@
         #newsletter-modal .modal-close:hover,
         #newsletter-modal .modal-close:focus {
             background: rgba(156, 39, 176, 0.2);
+            outline: 2px solid var(--newsletter);
         }
 
         /* Style spécifique pour le formulaire Brevo dans le fond noir */
         #newsletter-modal .sib-form {
-            background-color: #000000 !important;
+            background-color: var(--dark-bg) !important;
         }
 
         #newsletter-modal .sib-container--large {
-            background-color: #000000 !important;
+            background-color: var(--dark-bg) !important;
             border-color: var(--newsletter) !important;
         }
 
         #newsletter-modal .sib-form-block p {
-            color: #ffffff !important;
+            color: var(--text-primary) !important;
         }
 
         #newsletter-modal .entry__label {
-            color: #ffffff !important;
+            color: var(--text-primary) !important;
         }
 
         #newsletter-modal .input {
-            background-color: #111111 !important;
+            background-color: var(--medium-bg) !important;
             border: 1px solid #333333 !important;
-            color: #ffffff !important;
+            color: var(--text-primary) !important;
         }
 
         #newsletter-modal .input::placeholder {
-            color: #888888 !important;
+            color: var(--text-secondary) !important;
         }
 
-        /* MODAL MENTIONS LÉGALES */
+        /* === MODAL MENTIONS LÉGALES === */
         .legal-modal {
             max-width: 800px;
         }
 
         .legal-modal-content {
-            padding: 3rem 2rem 2rem 2rem;
-            max-height: calc(85vh - 4rem);
+            padding: 2rem 1rem 1rem 1rem;
+            max-height: calc(85vh - 3rem);
             overflow-y: auto;
             color: var(--cream);
         }
@@ -607,33 +654,33 @@
         .legal-modal-content h2 {
             color: var(--gold);
             text-align: center;
-            margin-bottom: 2rem;
-            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
             border-bottom: 2px solid var(--gold);
             padding-bottom: 1rem;
         }
 
         .legal-modal-content h3 {
             color: var(--light-gold);
-            margin: 2rem 0 1rem 0;
-            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.2rem;
         }
 
         .legal-modal-content p {
             margin-bottom: 1rem;
             line-height: 1.6;
-            color: #ffffff;
+            color: var(--text-primary);
         }
 
         .legal-modal-content ul {
-            margin-left: 2rem;
+            margin-left: 1.5rem;
             margin-bottom: 1rem;
         }
 
         .legal-modal-content li {
             margin-bottom: 0.5rem;
             line-height: 1.6;
-            color: #ffffff;
+            color: var(--text-primary);
         }
 
         .legal-modal-content strong {
@@ -641,16 +688,16 @@
         }
 
         .legal-modal-content em {
-            color: #cccccc;
+            color: var(--text-secondary);
         }
 
-        /* FOOTER */
+        /* === FOOTER === */
         footer {
             background: var(--medium-bg);
             color: var(--light-gold);
             text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
+            padding: 1.5rem;
+            margin-top: 2rem;
             border-top: 1px solid rgba(255, 215, 0, 0.1);
         }
 
@@ -658,58 +705,79 @@
             margin-top: 1rem;
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 1.5rem;
             flex-wrap: wrap;
         }
 
-        .footer-links a {
+        .footer-links a,
+        .footer-links button {
             color: var(--light-gold);
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             padding: 0.5rem;
+            border-radius: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
         }
 
         .footer-links a:hover,
-        .footer-links a:focus {
+        .footer-links a:focus,
+        .footer-links button:hover,
+        .footer-links button:focus {
             text-decoration: underline;
             transform: translateY(-2px);
-            outline: none;
+            outline: 2px solid var(--light-gold);
+            background: rgba(255, 215, 0, 0.1);
         }
 
-        /* RESPONSIVE */
+        /* === RESPONSIVE DESIGN === */
         @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+                margin: 0 auto 1rem;
+            }
+
             nav ul {
                 flex-direction: column;
-                gap: 1rem;
+                gap: 0.5rem;
+                display: none;
+            }
+
+            nav ul.show {
+                display: flex;
             }
 
             .hero {
-                padding: 2rem 1rem;
+                padding: 1.5rem 1rem;
             }
 
             .services {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
+                gap: 1rem;
             }
 
             main {
-                padding: 1rem;
+                padding: 0.5rem;
             }
 
             .btn {
-                padding: 12px 25px;
-                font-size: 1rem;
-                min-height: 48px;
+                padding: 12px 20px;
+                font-size: 0.95rem;
+                min-height: 46px;
+                min-width: 140px;
             }
 
             .button-container {
                 flex-direction: column;
                 align-items: center;
+                gap: 0.75rem;
             }
 
             .button-container .btn {
                 width: 100%;
-                max-width: 300px;
+                max-width: 280px;
             }
 
             .modal {
@@ -718,44 +786,50 @@
             }
 
             .modal-content, .legal-modal-content {
-                padding: 2rem 1rem 1rem 1rem;
+                padding: 1.5rem 1rem 1rem 1rem;
             }
 
             .footer-links {
                 flex-direction: column;
-                gap: 1rem;
+                gap: 0.75rem;
             }
             
             .hero h2 {
-                font-size: 1.8rem;
+                font-size: 1.5rem;
             }
         }
 
         @media (max-width: 480px) {
             .hero {
-                padding: 1.5rem 1rem;
+                padding: 1rem;
             }
             
             .service {
-                padding: 1.5rem;
+                padding: 1rem;
             }
             
             .faq-section, .contact-section, .callback-section, .social-section, .newsletter-section {
-                padding: 2rem 1rem;
+                padding: 1.5rem 1rem;
+            }
+
+            .btn {
+                padding: 10px 16px;
+                font-size: 0.9rem;
+                min-height: 44px;
             }
         }
 
-        /* ANIMATIONS */
+        /* === ANIMATIONS === */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         .animate-in {
-            animation: fadeIn 0.8s ease-out;
+            animation: fadeIn 0.6s ease-out;
         }
 
-        /* Améliorations accessibilité */
+        /* === AMÉLIORATIONS ACCESSIBILITÉ === */
         .sr-only {
             position: absolute;
             width: 1px;
@@ -769,10 +843,14 @@
         }
 
         /* Focus visible pour l'accessibilité */
-        button:focus-visible,
-        a:focus-visible {
+        *:focus-visible {
             outline: 2px solid var(--light-gold);
             outline-offset: 2px;
+        }
+
+        /* Amélioration du contraste pour les liens */
+        a:not(.btn) {
+            color: var(--light-gold);
         }
 
         /* Loading states */
@@ -780,13 +858,59 @@
             opacity: 0.7;
             pointer-events: none;
         }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            :root {
+                --gold: #ffd700;
+                --light-gold: #ffff00;
+                --cream: #ffffff;
+                --text-primary: #ffffff;
+                --text-secondary: #ffffff;
+            }
+
+            .service, .faq-section, .contact-section, .callback-section, .social-section, .newsletter-section {
+                border-width: 2px;
+            }
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            html {
+                scroll-behavior: auto;
+            }
+        }
+
+        /* Touch device improvements */
+        @media (hover: none) {
+            .service:hover {
+                transform: none;
+            }
+            
+            .btn:hover {
+                transform: none;
+            }
+            
+            .btn:active {
+                transform: scale(0.98);
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- SKIP LINK - ACCESSIBILITÉ -->
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
     <!-- HEADER -->
     <header>
         <div class="header-content">
-            <img src="logo.png.jpg" alt="ATKAN Consulting - Formation pédagogique innovante" width="80" height="80">
+            <img src="logo.png.jpg" alt="ATKAN Consulting - Logo" width="80" height="80">
             <div>
                 <h1>ATKAN CONSULTING</h1>
                 <p>L'intelligence humaine au cœur de la transformation</p>
@@ -799,7 +923,10 @@
     <!-- NAVIGATION -->
     <nav>
         <div class="nav-container">
-            <ul>
+            <button class="nav-toggle" aria-expanded="false" aria-controls="main-menu">
+                ☰ Menu
+            </button>
+            <ul id="main-menu">
                 <li><a href="#accueil">Accueil</a></li>
                 <li><a href="#formations">Nos formations</a></li>
                 <li><a href="#leviers">Nos leviers</a></li>
@@ -811,7 +938,7 @@
     </nav>
 
     <!-- CONTENU PRINCIPAL -->
-    <main>
+    <main id="main-content">
         <!-- SECTION HERO -->
         <section class="hero animate-in" id="accueil">
             <h2>Bienvenue chez ATKAN CONSULTING - L'intelligence humaine au cœur de la transformation.</h2>
@@ -994,7 +1121,7 @@ Notre ambition : transformer vos pratiques, développer vos talents, et inscrire
     </main>
 
     <!-- MODAL NEWSLETTER -->
-    <div class="modal-overlay" id="newsletter-modal">
+    <div class="modal-overlay" id="newsletter-modal" aria-hidden="true" role="dialog" aria-labelledby="newsletter-title">
         <div class="modal">
             <button class="modal-close" id="newsletter-modal-close" aria-label="Fermer la newsletter">×</button>
             <div class="modal-content">
@@ -1027,7 +1154,7 @@ Notre ambition : transformer vos pratiques, développer vos talents, et inscrire
                             <form id="sib-form" method="POST" action="https://1e301ca2.sibforms.com/serve/MUIFADTzleZBeakewx0GfwPRlROakK_ojWQka_UOHa9RKLjRXKO1Pt3ob7yHi3_qzsSAdtjIUpiKF7JPNisthLPsxGqKVdWBFzSD8bYFsFjXNfHV5Kv9NFjTvRgxRA4fPCrxDrTAZ2Yt8khauIO7xP3wBGJrWpKBsUSfGqZEnvPnk6tifb9FLtAcnuswj7JBvurTmlRIqXztc8Gu" data-type="subscription">
                                 <div style="padding: 8px 0;">
                                     <div class="sib-form-block" style="font-size:31px; text-align:center; font-weight:700; font-family:Helvetica, sans-serif; color:#9C27B0; background-color:transparent; text-align:center">
-                                        <p>Newsletter ATKAN Consulting</p>
+                                        <p id="newsletter-title">Newsletter ATKAN Consulting</p>
                                     </div>
                                 </div>
                                 <div style="padding: 8px 0;">
@@ -1177,11 +1304,11 @@ Notre ambition : transformer vos pratiques, développer vos talents, et inscrire
     </div>
 
     <!-- MODAL MENTIONS LÉGALES -->
-    <div class="modal-overlay" id="legal-modal">
+    <div class="modal-overlay" id="legal-modal" aria-hidden="true" role="dialog" aria-labelledby="legal-title">
         <div class="modal legal-modal">
             <button class="modal-close" id="legal-modal-close" aria-label="Fermer les mentions légales">×</button>
             <div class="legal-modal-content">
-                <h2>MENTIONS LÉGALES</h2>
+                <h2 id="legal-title">MENTIONS LÉGALES</h2>
                 
                 <p><strong>Dernière mise à jour : novembre 2025</strong></p>
 
@@ -1264,13 +1391,35 @@ Notre ambition : transformer vos pratiques, développer vos talents, et inscrire
         document.addEventListener('DOMContentLoaded', function() {
             console.log('Page ATKAN Consulting chargée avec succès');
 
-            // Gestion de la modal des mentions légales
+            // === GESTION DE LA NAVIGATION MOBILE ===
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenu = document.getElementById('main-menu');
+
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', function() {
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    navMenu.classList.toggle('show');
+                });
+
+                // Fermer le menu en cliquant à l'extérieur
+                document.addEventListener('click', function(e) {
+                    if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                        navToggle.setAttribute('aria-expanded', 'false');
+                        navMenu.classList.remove('show');
+                    }
+                });
+            }
+
+            // === GESTION DES MODALS ===
+            // Modal des mentions légales
             const legalModal = document.getElementById('legal-modal');
             const legalModalOpen = document.getElementById('legal-modal-open');
             const legalModalOpenFooter = document.getElementById('legal-modal-open-footer');
             const legalModalClose = document.getElementById('legal-modal-close');
 
             function openLegalModal() {
+                legalModal.setAttribute('aria-hidden', 'false');
                 legalModal.classList.add('show');
                 document.body.style.overflow = 'hidden';
                 // Focus sur le bouton de fermeture pour l'accessibilité
@@ -1278,6 +1427,7 @@ Notre ambition : transformer vos pratiques, développer vos talents, et inscrire
             }
 
             function closeLegalModal() {
+                legalModal.setAttribute('aria-hidden', 'true');
                 legalModal.classList.remove('show');
                 document.body.style.overflow = '';
                 // Retour au bouton d'ouverture pour l'accessibilité
@@ -1307,11 +1457,12 @@ Notre ambition : transformer vos pratiques, développer vos talents, et inscrire
                 }
             });
 
-            // Gestion de la modal newsletter
+            // Modal newsletter
             const newsletterModal = document.getElementById('newsletter-modal');
             const newsletterModalClose = document.getElementById('newsletter-modal-close');
 
             function openNewsletterModal() {
+                newsletterModal.setAttribute('aria-hidden', 'false');
                 newsletterModal.classList.add('show');
                 document.body.style.overflow = 'hidden';
                 // Focus sur le bouton de fermeture pour l'accessibilité
@@ -1319,6 +1470,7 @@ Notre ambition : transformer vos pratiques, développer vos talents, et inscrire
             }
 
             function closeNewsletterModal() {
+                newsletterModal.setAttribute('aria-hidden', 'true');
                 newsletterModal.classList.remove('show');
                 document.body.style.overflow = '';
             }
@@ -1378,7 +1530,7 @@ Notre ambition : transformer vos pratiques, développer vos talents, et inscrire
                 });
             }
 
-            // Smooth scroll pour la navigation
+            // === SMOOTH SCROLL POUR LA NAVIGATION ===
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     // Ne pas empêcher le comportement pour les liens mailto
@@ -1396,7 +1548,7 @@ Notre ambition : transformer vos pratiques, développer vos talents, et inscrire
                 });
             });
 
-            // Animation au scroll
+            // === ANIMATION AU SCROLL ===
             const observerOptions = {
                 root: null,
                 rootMargin: '-50px',
@@ -1420,6 +1572,7 @@ Notre ambition : transformer vos pratiques, développer vos talents, et inscrire
                 observer.observe(el);
             });
 
+            // === TRACKING DES INTERACTIONS ===
             // Vérification que les boutons CTA sont cliquables
             document.querySelectorAll('.btn').forEach(button => {
                 button.addEventListener('click', function(e) {
@@ -1456,7 +1609,7 @@ Notre ambition : transformer vos pratiques, développer vos talents, et inscrire
                 });
             });
 
-            // Amélioration du formulaire Brevo
+            // === AMÉLIORATION DU FORMULAIRE BREVO ===
             const brevoForm = document.getElementById('sib-form');
             if (brevoForm) {
                 brevoForm.addEventListener('submit', function(e) {
@@ -1467,6 +1620,12 @@ Notre ambition : transformer vos pratiques, développer vos talents, et inscrire
                         submitBtn.classList.add('loading');
                     }
                 });
+            }
+
+            // === GESTION DES PRÉFÉRENCES D'ACCESSIBILITÉ ===
+            // Support pour la réduction des mouvements
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.documentElement.style.setProperty('--transition', 'none');
             }
         });
 
