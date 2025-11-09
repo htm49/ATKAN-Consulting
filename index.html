@@ -12,11 +12,12 @@
             padding: 0;
             box-sizing: border-box;
         }
-            body {
+
+        body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            background: #000000 !important; /* Fond noir forcé */
-            color: #ffffe3 !important; /* Texte clair forcé */
+            background: #000000;
+            color: #ffffe3;
             min-height: 100vh;
             overflow-x: hidden;
         }
@@ -125,21 +126,62 @@
             line-height: 1.7;
         }
 
+        /* CORRECTION DU BOUTON CTA */
         .cta-button {
             display: inline-block;
             background: linear-gradient(135deg, #ffffe3, #ffd700);
-            color: #000;
-            padding: 12px 30px;
+            color: #000000 !important;
+            padding: 15px 35px;
             border-radius: 25px;
             text-decoration: none;
             font-weight: bold;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
             transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+            margin: 0.5rem;
         }
 
         .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+            background: linear-gradient(135deg, #ffd700, #ffffe3);
+        }
+
+        /* NOUVEAU BOUTON ÊTRE RAPPELÉ */
+        .callback-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: #ffffff !important;
+            padding: 15px 35px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+            margin: 0.5rem;
+        }
+
+        .callback-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.5);
+            background: linear-gradient(135deg, #45a049, #4CAF50);
+            color: #ffffff !important;
+        }
+
+        /* CONTAINER POUR LES BOUTONS */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
         }
 
         /* SECTIONS */
@@ -228,6 +270,32 @@
             text-decoration: underline;
         }
 
+        /* SECTION RAPPEL */
+        .callback-section {
+            background: linear-gradient(135deg, #1a2a1a, #000);
+            color: #4CAF50;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            margin: 3rem 0;
+            border: 1px solid rgba(76, 175, 80, 0.3);
+        }
+
+        .callback-section h2 {
+            color: #4CAF50;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .callback-section p {
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         /* FOOTER */
         footer {
             background: #111;
@@ -256,6 +324,22 @@
             main {
                 padding: 1rem;
             }
+
+            .cta-button, .callback-button {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+
+            .button-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .button-container a {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
         }
 
         /* ANIMATIONS SIMPLES */
@@ -266,6 +350,12 @@
 
         .animate-in {
             animation: fadeIn 0.8s ease-out;
+        }
+
+        /* Style pour s'assurer que les boutons sont visibles */
+        .cta-button:focus, .callback-button:focus {
+            outline: 2px solid #ffd700;
+            outline-offset: 2px;
         }
     </style>
 </head>
@@ -304,7 +394,16 @@
             <p>Chez ATKAN CONSULTING, pas de solutions toutes faites</p>
             <p>Chaque organisation est unique. C'est pourquoi nous co-construisons chaque mission avec vous, pour répondre concrètement à vos enjeux et générer un impact humain, durable et mesurable.</p>
             <p>Dans un monde professionnel en constante mutation, nous croyons à la force de l'intelligence collective, à l'adaptation sur le terrain, et à une approche profondément ancrée dans la réalité de vos équipes.</p>
-            <a href="#contact" class="cta-button">Demander un devis personnalisé</a>
+            
+            <!-- BOUTON CORRIGÉ -->
+            <div class="button-container">
+                <a href="#contact" class="cta-button" style="color: #000000 !important; text-decoration: none;">
+                    Demander un devis personnalisé
+                </a>
+                <a href="https://calendly.com/contact-atkanconsulting/30min" class="callback-button" target="_blank" rel="noopener" style="color: #ffffff !important; text-decoration: none;">
+                    📞 Être rappelé
+                </a>
+            </div>
         </section>
 
         <!-- FORMATIONS -->
@@ -370,29 +469,78 @@
                 <p><strong>Email :</strong> <a href="mailto:contact@atkanconsulting.fr">contact@atkanconsulting.fr</a></p>
                 <p><strong>Téléphone :</strong> <a href="tel:+33650417152">+33 6 50 41 71 52</a></p>
                 <p>Prêt(e) à transformer votre organisation ? Contactez-nous pour un échange personnalisé.</p>
-                <a href="mailto:contact@atkanconsulting.fr" class="cta-button">Demander un devis personnalisé</a>
+                
+                <div class="button-container">
+                    <a href="mailto:contact@atkanconsulting.fr?subject=Demande%20de%20devis%20personnalisé&body=Bonjour,%20je%20suis%20intéressé(e)%20par%20vos%20formations..." 
+                       class="cta-button" 
+                       style="color: #000000 !important; text-decoration: none;">
+                       Demander un devis personnalisé
+                    </a>
+                    
+                    <a href="https://calendly.com/contact-atkanconsulting/30min" 
+                       class="callback-button" 
+                       target="_blank" 
+                       rel="noopener"
+                       style="color: #ffffff !important; text-decoration: none;">
+                       📞 Être rappelé
+                    </a>
+                </div>
             </div>
+        </section>
+
+        <!-- NOUVELLE SECTION RAPPEL -->
+        <section class="callback-section animate-in">
+            <h2>📞 Disponible pour un appel de 30 minutes</h2>
+            <p>Prenez rendez-vous directement dans mon calendrier pour un appel découverte de 30 minutes. Nous pourrons échanger sur vos besoins spécifiques et voir comment ATKAN Consulting peut vous accompagner.</p>
+            
+            <div class="button-container">
+                <a href="https://calendly.com/contact-atkanconsulting/30min" 
+                   class="callback-button" 
+                   target="_blank" 
+                   rel="noopener"
+                   style="color: #ffffff !important; text-decoration: none; font-size: 1.2rem; padding: 18px 40px;">
+                   🗓️ Prendre rendez-vous maintenant
+                </a>
+            </div>
+            
+            <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #cccccc;">
+                <em>Réponse garantie sous 24h • Sans engagement • Confidentialité assurée</em>
+            </p>
         </section>
     </main>
 
     <!-- FOOTER -->
     <footer>
-        <p>© 2024 ATKAN CONSULTING. Tous droits réservés.</p>
+        <p>© 2025 ATKAN CONSULTING. Tous droits réservés.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+            <a href="https://calendly.com/contact-atkanconsulting/30min" 
+               style="color: #ffd700; text-decoration: none;" 
+               target="_blank" 
+               rel="noopener">
+               📞 Prendre rendez-vous en ligne
+            </a>
+        </p>
     </footer>
 
     <script>
         // Script de base pour les interactions
         document.addEventListener('DOMContentLoaded', function() {
+            console.log('Page ATKAN Consulting chargée avec succès');
+
             // Smooth scroll pour la navigation
-            document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
+                    // Ne pas empêcher le comportement pour les liens mailto
+                    if (this.getAttribute('href').startsWith('#') && 
+                        !this.classList.contains('cta-button')) {
+                        e.preventDefault();
+                        const target = document.querySelector(this.getAttribute('href'));
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
                     }
                 });
             });
@@ -414,15 +562,29 @@
             }, observerOptions);
 
             // Observer les éléments avec animation
-            document.querySelectorAll('.service, .hero, .faq-section, .contact-section').forEach(el => {
+            document.querySelectorAll('.service, .hero, .faq-section, .contact-section, .callback-section').forEach(el => {
                 el.style.opacity = '0';
                 el.style.transform = 'translateY(20px)';
                 el.style.transition = 'all 0.6s ease-out';
                 observer.observe(el);
             });
-        });
 
-        console.log('Page ATKAN Consulting chargée avec succès');
+            // Vérification que les boutons CTA sont cliquables
+            document.querySelectorAll('.cta-button, .callback-button').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    console.log('Bouton cliqué:', this.getAttribute('href'));
+                    // Le comportement par défaut (lien) est conservé
+                });
+            });
+
+            // Tracking des clics sur le bouton Calendly (optionnel)
+            document.querySelectorAll('a[href*="calendly.com"]').forEach(link => {
+                link.addEventListener('click', function() {
+                    console.log('Clic sur le lien Calendly détecté');
+                    // Ici vous pourriez ajouter Google Analytics ou autre tracking
+                });
+            });
+        });
     </script>
 </body>
 </html>
