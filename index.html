@@ -80,33 +80,6 @@
     }
     </script>
 
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Accueil",
-                "item": "https://atkanconsulting.fr"
-            },
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Formations",
-                "item": "https://atkanconsulting.fr#formations"
-            },
-            {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "Contact",
-                "item": "https://atkanconsulting.fr#contact"
-            }
-        ]
-    }
-    </script>
-
     <style>
         /* RESET ET BASE */
         * {
@@ -133,11 +106,11 @@
             overflow-x: hidden;
         }
 
-        /* HEADER avec microdata */
+        /* HEADER avec microdata - LOGO CORRIGÉ */
         header {
             background: linear-gradient(135deg, #d4af37, #333);
             color: black;
-            padding: 1rem;
+            padding: 1.5rem 1rem;
             text-align: center;
         }
 
@@ -145,24 +118,47 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1rem;
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* CORRECTION DU LOGO - Plus naturel */
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0.5rem;
         }
 
         header img {
-            height: 80px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            max-height: 100px; /* Hauteur maximale au lieu de hauteur fixe */
+            width: auto; /* Largeur automatique pour garder les proportions */
+            max-width: 300px; /* Largeur maximale pour éviter qu'il ne devienne trop grand */
+            object-fit: contain; /* Garde les proportions sans déformation */
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        /* Effet de survol subtil sur le logo */
+        header img:hover {
+            transform: scale(1.03);
         }
 
         header h1 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 700;
             color: #000;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
         }
 
         header p {
             font-style: italic;
             color: #000;
+            font-size: 1.1rem;
+            margin: 0.2rem 0;
         }
 
         /* NAVIGATION améliorée pour accessibilité */
@@ -417,8 +413,21 @@
             border-top: 1px solid rgba(255, 215, 0, 0.1);
         }
 
-        /* RESPONSIVE design */
+        /* RESPONSIVE design - AMÉLIORATIONS LOGO */
         @media (max-width: 768px) {
+            .header-content {
+                gap: 1rem;
+            }
+
+            header img {
+                max-height: 80px; /* Plus petit sur mobile */
+                max-width: 250px;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+
             nav ul {
                 flex-direction: column;
                 gap: 1rem;
@@ -450,6 +459,21 @@
                 width: 100%;
                 max-width: 300px;
                 text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header img {
+                max-height: 70px;
+                max-width: 200px;
+            }
+
+            header h1 {
+                font-size: 1.6rem;
+            }
+
+            header p {
+                font-size: 1rem;
             }
         }
 
@@ -487,11 +511,15 @@
     <!-- Skip link pour l'accessibilité -->
     <a href="#main-content" class="sr-only">Aller au contenu principal</a>
 
-    <!-- HEADER avec microdata -->
+    <!-- HEADER avec microdata - LOGO CORRIGÉ -->
     <header itemscope itemtype="https://schema.org/Organization">
         <div class="header-content">
-            <img src="logo.png" alt="ATKAN Consulting - Expert formation pédagogique active et IA générative" 
-                 width="200" height="80" loading="eager" itemprop="logo">
+            <div class="logo-container">
+                <img src="logo.png" 
+                     alt="ATKAN Consulting - Expert formation pédagogique active et IA générative" 
+                     loading="eager" 
+                     itemprop="logo">
+            </div>
             <div>
                 <!-- H1 CRITIQUE AJOUTÉ -->
                 <h1 itemprop="name">ATKAN Consulting - Formation Pédagogique Innovante avec IA Générative</h1>
@@ -755,32 +783,6 @@
                 imageObserver.observe(img);
             });
         }
-    </script>
-
-    <!-- Schema.org FAQ supplémentaire -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": "Quels sont les avantages de la pédagogie active ?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "La pédagogie active améliore l'engagement des apprenants, favorise la mémorisation et développe l'autonomie. Elle permet une meilleure adaptation aux différents styles d'apprentissage et renforce la motivation intrinsèque."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Comment l'IA peut-elle améliorer la formation ?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "L'IA générative permet de créer du contenu personnalisé, d'automatiser certaines tâches répétitives, de générer des exercices adaptés et de fournir un feedback instantané aux apprenants. Elle augmente l'efficacité pédagogique tout en respectant l'éthique et la protection des données."
-                }
-            }
-        ]
-    }
     </script>
 </body>
 </html>
