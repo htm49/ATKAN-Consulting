@@ -5,6 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ATKAN Consulting - Formation pédagogique innovante avec IA</title>
     <meta name="description" content="Formations sur mesure en pédagogie active, IA générative et leadership. Accompagnement personnalisé pour formateurs et responsables pédagogiques.">
+    
+    <!-- Styles Brevo pour la newsletter -->
+    <style>
+      @font-face {
+        font-display: swap;
+        font-family: Roboto;
+        src: url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/7529907e9eaf8ebb5220c5f9850e3811.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/25c678feafdc175a70922a116c9be3e7.woff) format("woff")
+      }
+
+      @font-face {
+        font-display: swap;
+        font-family: Roboto;
+        font-weight: 600;
+        src: url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/6e9caeeafb1f3491be3e32744bc30440.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/71501f0d8d5aa95960f6475d5487d4c2.woff) format("woff")
+      }
+
+      @font-face {
+        font-display: swap;
+        font-family: Roboto;
+        font-weight: 700;
+        src: url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/3ef7cf158f310cf752d5ad08cd0e7e60.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/ece3a1d82f18b60bcce0211725c476aa.woff) format("woff")
+      }
+
+      #sib-container input:-ms-input-placeholder {
+        text-align: left;
+        font-family: Helvetica, sans-serif;
+        color: #c0ccda;
+      }
+
+      #sib-container input::placeholder {
+        text-align: left;
+        font-family: Helvetica, sans-serif;
+        color: #c0ccda;
+      }
+
+      #sib-container textarea::placeholder {
+        text-align: left;
+        font-family: Helvetica, sans-serif;
+        color: #c0ccda;
+      }
+
+      #sib-container a {
+        text-decoration: underline;
+        color: #2BB2FC;
+      }
+    </style>
+    <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
+
     <style>
         /* RESET ET BASE */
         * {
@@ -13,18 +61,29 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --gold: #d4af37;
+            --light-gold: #ffd700;
+            --cream: #ffffe3;
+            --dark-bg: #000000;
+            --medium-bg: #111111;
+            --success: #4CAF50;
+            --linkedin: #0077B5;
+            --newsletter: #9C27B0;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            background: #000000;
-            color: #ffffe3;
+            background: var(--dark-bg);
+            color: var(--cream);
             min-height: 100vh;
             overflow-x: hidden;
         }
 
         /* HEADER */
         header {
-            background: linear-gradient(135deg, #d4af37, #333);
+            background: linear-gradient(135deg, var(--gold), #333);
             color: black;
             padding: 1rem;
             text-align: center;
@@ -41,10 +100,12 @@
             height: 80px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            max-width: 100%;
+            height: auto;
         }
 
         header h1 {
-            font-size: 2rem;
+            font-size: clamp(1.5rem, 4vw, 2rem);
             font-weight: 700;
             color: #000;
         }
@@ -56,9 +117,12 @@
 
         /* NAVIGATION */
         nav {
-            background: #000000;
+            background: var(--dark-bg);
             padding: 1rem 0;
             box-shadow: 0 2px 10px rgba(255,255,255,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .nav-container {
@@ -71,26 +135,29 @@
             list-style: none;
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: clamp(1rem, 3vw, 2rem);
             flex-wrap: wrap;
         }
 
         nav ul li a {
-            color: #ffffe3;
+            color: var(--cream);
             text-decoration: none;
             font-weight: bold;
             padding: 0.5rem 1rem;
             border-radius: 20px;
             transition: all 0.3s ease;
+            display: block;
         }
 
-        nav ul li a:hover {
-            background: #ffffe3;
+        nav ul li a:hover,
+        nav ul li a:focus {
+            background: var(--cream);
             color: #000;
+            outline: none;
         }
 
         .catalog-btn {
-            background: linear-gradient(135deg, #ffffe3, #ffd700);
+            background: linear-gradient(135deg, var(--cream), var(--light-gold));
             color: #000 !important;
             font-weight: bold;
         }
@@ -104,8 +171,8 @@
 
         /* SECTION HERO */
         .hero {
-            background: #000;
-            color: #ffd700;
+            background: var(--dark-bg);
+            color: var(--light-gold);
             padding: 3rem 2rem;
             border-radius: 20px;
             text-align: center;
@@ -114,112 +181,115 @@
         }
 
         .hero h2 {
-            font-size: 2.5rem;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
             margin-bottom: 1.5rem;
-            color: #ffd700;
+            color: var(--light-gold);
         }
 
         .hero p {
-            font-size: 1.1rem;
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
             margin-bottom: 1rem;
             color: #ffffff;
             line-height: 1.7;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        /* CORRECTION DU BOUTON CTA */
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #ffffe3, #ffd700);
-            color: #000000 !important;
+        /* BOUTONS */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             padding: 15px 35px;
             border-radius: 25px;
             text-decoration: none;
             font-weight: bold;
-            margin-top: 1.5rem;
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
             font-size: 1.1rem;
-            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
             margin: 0.5rem;
+            text-align: center;
+            min-height: 54px;
+            gap: 0.5rem;
         }
 
-        .cta-button:hover {
+        .cta-button {
+            background: linear-gradient(135deg, var(--cream), var(--light-gold));
+            color: #000000 !important;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .cta-button:hover,
+        .cta-button:focus {
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
-            background: linear-gradient(135deg, #ffd700, #ffffe3);
+            background: linear-gradient(135deg, var(--light-gold), var(--cream));
+            color: #000000 !important;
         }
 
-        /* NOUVEAU BOUTON ÊTRE RAPPELÉ */
         .callback-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #4CAF50, #45a049);
+            background: linear-gradient(135deg, var(--success), #45a049);
             color: #ffffff !important;
-            padding: 15px 35px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 1.5rem;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 1.1rem;
             box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
-            margin: 0.5rem;
         }
 
-        .callback-button:hover {
+        .callback-button:hover,
+        .callback-button:focus {
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(76, 175, 80, 0.5);
-            background: linear-gradient(135deg, #45a049, #4CAF50);
+            background: linear-gradient(135deg, #45a049, var(--success));
             color: #ffffff !important;
         }
 
-        /* BOUTON LINKEDIN */
         .linkedin-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #0077B5, #00A0DC);
+            background: linear-gradient(135deg, var(--linkedin), #00A0DC);
             color: #ffffff !important;
-            padding: 15px 35px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 1.5rem;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 1.1rem;
             box-shadow: 0 4px 15px rgba(0, 119, 181, 0.3);
-            margin: 0.5rem;
         }
 
-        .linkedin-button:hover {
+        .linkedin-button:hover,
+        .linkedin-button:focus {
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(0, 119, 181, 0.5);
-            background: linear-gradient(135deg, #00A0DC, #0077B5);
+            background: linear-gradient(135deg, #00A0DC, var(--linkedin));
             color: #ffffff !important;
         }
 
-        /* BOUTON MENTIONS LÉGALES */
+        .newsletter-button {
+            background: linear-gradient(135deg, var(--newsletter), #7B1FA2);
+            color: #ffffff !important;
+            box-shadow: 0 4px 15px rgba(156, 39, 176, 0.3);
+        }
+
+        .newsletter-button:hover,
+        .newsletter-button:focus {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(156, 39, 176, 0.5);
+            background: linear-gradient(135deg, #7B1FA2, var(--newsletter));
+            color: #ffffff !important;
+        }
+
         .legal-button {
-            display: inline-block;
             background: transparent;
-            color: #ffd700 !important;
+            color: var(--light-gold) !important;
             padding: 10px 20px;
             border-radius: 20px;
             text-decoration: none;
             font-weight: normal;
-            margin-top: 1rem;
             transition: all 0.3s ease;
-            border: 1px solid #ffd700;
+            border: 1px solid var(--light-gold);
             cursor: pointer;
             font-size: 0.9rem;
             margin: 0.5rem;
         }
 
-        .legal-button:hover {
+        .legal-button:hover,
+        .legal-button:focus {
             background: rgba(255, 215, 0, 0.1);
             transform: translateY(-2px);
+            outline: none;
         }
 
         /* CONTAINER POUR LES BOUTONS */
@@ -235,8 +305,8 @@
         .section-title {
             text-align: center;
             margin: 3rem 0 2rem 0;
-            color: #ffffe3;
-            font-size: 2.2rem;
+            color: var(--cream);
+            font-size: clamp(1.8rem, 4vw, 2.2rem);
         }
 
         /* SERVICES */
@@ -248,27 +318,32 @@
         }
 
         .service {
-            background: linear-gradient(135deg, #111, #000);
+            background: linear-gradient(135deg, var(--medium-bg), var(--dark-bg));
             padding: 2rem;
             border-radius: 20px;
             text-align: center;
             border: 1px solid rgba(255, 215, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .service:hover {
+            transform: translateY(-5px);
         }
 
         .service h3 {
-            color: #ffffe3;
+            color: var(--cream);
             margin-bottom: 1rem;
             font-size: 1.4rem;
         }
 
         .service p {
-            color: #ffd700;
+            color: var(--light-gold);
             line-height: 1.6;
         }
 
         /* FAQ */
         .faq-section {
-            background: linear-gradient(135deg, #111, #000);
+            background: linear-gradient(135deg, var(--medium-bg), var(--dark-bg));
             padding: 3rem 2rem;
             border-radius: 20px;
             margin: 3rem 0;
@@ -282,7 +357,7 @@
         }
 
         .faq-question {
-            color: #d4af37;
+            color: var(--gold);
             font-weight: bold;
             font-size: 1.2rem;
             margin-bottom: 0.5rem;
@@ -295,8 +370,8 @@
 
         /* CONTACT */
         .contact-section {
-            background: linear-gradient(135deg, #111, #000);
-            color: #ffd700;
+            background: linear-gradient(135deg, var(--medium-bg), var(--dark-bg));
+            color: var(--light-gold);
             padding: 3rem 2rem;
             border-radius: 20px;
             text-align: center;
@@ -309,18 +384,21 @@
         }
 
         .contact-info a {
-            color: #ffd700;
+            color: var(--light-gold);
             text-decoration: none;
+            transition: all 0.3s ease;
         }
 
-        .contact-info a:hover {
+        .contact-info a:hover,
+        .contact-info a:focus {
             text-decoration: underline;
+            outline: none;
         }
 
         /* SECTION RAPPEL */
         .callback-section {
-            background: linear-gradient(135deg, #1a2a1a, #000);
-            color: #4CAF50;
+            background: linear-gradient(135deg, #1a2a1a, var(--dark-bg));
+            color: var(--success);
             padding: 3rem 2rem;
             border-radius: 20px;
             text-align: center;
@@ -329,9 +407,9 @@
         }
 
         .callback-section h2 {
-            color: #4CAF50;
+            color: var(--success);
             margin-bottom: 1.5rem;
-            font-size: 2rem;
+            font-size: clamp(1.8rem, 4vw, 2rem);
         }
 
         .callback-section p {
@@ -345,8 +423,8 @@
 
         /* SECTION RÉSEAUX SOCIAUX */
         .social-section {
-            background: linear-gradient(135deg, #0e1a2b, #000);
-            color: #0077B5;
+            background: linear-gradient(135deg, #0e1a2b, var(--dark-bg));
+            color: var(--linkedin);
             padding: 3rem 2rem;
             border-radius: 20px;
             text-align: center;
@@ -355,9 +433,9 @@
         }
 
         .social-section h2 {
-            color: #0077B5;
+            color: var(--linkedin);
             margin-bottom: 1.5rem;
-            font-size: 2rem;
+            font-size: clamp(1.8rem, 4vw, 2rem);
         }
 
         .social-section p {
@@ -369,8 +447,34 @@
             margin-right: auto;
         }
 
-        /* MODAL MENTIONS LÉGALES */
-        .legal-modal-overlay {
+        /* SECTION NEWSLETTER */
+        .newsletter-section {
+            background: linear-gradient(135deg, #2a1a3a, var(--dark-bg));
+            color: var(--newsletter);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            margin: 3rem 0;
+            border: 1px solid rgba(156, 39, 176, 0.3);
+        }
+
+        .newsletter-section h2 {
+            color: var(--newsletter);
+            margin-bottom: 1.5rem;
+            font-size: clamp(1.8rem, 4vw, 2rem);
+        }
+
+        .newsletter-section p {
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* MODALS */
+        .modal-overlay {
             display: none;
             position: fixed;
             top: 0;
@@ -379,26 +483,27 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.9);
             backdrop-filter: blur(5px);
-            z-index: 1000;
+            z-index: 2000;
             opacity: 0;
             transition: all 0.3s ease;
             overflow-y: auto;
+            padding: 1rem;
         }
 
-        .legal-modal-overlay.show {
+        .modal-overlay.show {
             display: flex;
             align-items: center;
             justify-content: center;
             opacity: 1;
         }
 
-        .legal-modal {
+        .modal {
             position: relative;
-            max-width: 800px;
+            max-width: 600px;
             width: 90%;
             max-height: 85vh;
-            background: linear-gradient(135deg, #111, #000);
-            border: 2px solid #d4af37;
+            background: linear-gradient(135deg, var(--medium-bg), var(--dark-bg));
+            border: 2px solid var(--gold);
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(212, 175, 55, 0.3);
             transform: scale(0.8) translateY(50px);
@@ -406,20 +511,20 @@
             overflow: hidden;
         }
 
-        .legal-modal-overlay.show .legal-modal {
+        .modal-overlay.show .modal {
             transform: scale(1) translateY(0);
         }
 
-        .legal-modal-close {
+        .modal-close {
             position: absolute;
             top: 15px;
             right: 20px;
             background: none;
             border: none;
-            color: #d4af37;
+            color: var(--gold);
             font-size: 28px;
             cursor: pointer;
-            z-index: 1001;
+            z-index: 2001;
             transition: all 0.3s ease;
             width: 40px;
             height: 40px;
@@ -427,31 +532,45 @@
             align-items: center;
             justify-content: center;
             border-radius: 50%;
+            line-height: 1;
         }
 
-        .legal-modal-close:hover {
+        .modal-close:hover,
+        .modal-close:focus {
             background: rgba(212, 175, 55, 0.2);
             transform: rotate(90deg);
+            outline: none;
+        }
+
+        .modal-content {
+            padding: 2rem;
+            max-height: calc(85vh - 4rem);
+            overflow-y: auto;
+        }
+
+        /* MODAL MENTIONS LÉGALES */
+        .legal-modal {
+            max-width: 800px;
         }
 
         .legal-modal-content {
             padding: 3rem 2rem 2rem 2rem;
             max-height: calc(85vh - 4rem);
             overflow-y: auto;
-            color: #ffffe3;
+            color: var(--cream);
         }
 
         .legal-modal-content h2 {
-            color: #d4af37;
+            color: var(--gold);
             text-align: center;
             margin-bottom: 2rem;
             font-size: 2rem;
-            border-bottom: 2px solid #d4af37;
+            border-bottom: 2px solid var(--gold);
             padding-bottom: 1rem;
         }
 
         .legal-modal-content h3 {
-            color: #ffd700;
+            color: var(--light-gold);
             margin: 2rem 0 1rem 0;
             font-size: 1.3rem;
         }
@@ -474,7 +593,7 @@
         }
 
         .legal-modal-content strong {
-            color: #ffd700;
+            color: var(--light-gold);
         }
 
         .legal-modal-content em {
@@ -483,8 +602,8 @@
 
         /* FOOTER */
         footer {
-            background: #111;
-            color: #ffd700;
+            background: var(--medium-bg);
+            color: var(--light-gold);
             text-align: center;
             padding: 2rem;
             margin-top: 3rem;
@@ -500,14 +619,17 @@
         }
 
         .footer-links a {
-            color: #ffd700;
+            color: var(--light-gold);
             text-decoration: none;
             transition: all 0.3s ease;
+            padding: 0.5rem;
         }
 
-        .footer-links a:hover {
+        .footer-links a:hover,
+        .footer-links a:focus {
             text-decoration: underline;
             transform: translateY(-2px);
+            outline: none;
         }
 
         /* RESPONSIVE */
@@ -517,21 +639,23 @@
                 gap: 1rem;
             }
 
-            .hero h2 {
-                font-size: 2rem;
+            .hero {
+                padding: 2rem 1rem;
             }
 
             .services {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
 
             main {
                 padding: 1rem;
             }
 
-            .cta-button, .callback-button, .linkedin-button {
+            .btn {
                 padding: 12px 25px;
                 font-size: 1rem;
+                min-height: 48px;
             }
 
             .button-container {
@@ -539,18 +663,17 @@
                 align-items: center;
             }
 
-            .button-container a {
+            .button-container .btn {
                 width: 100%;
                 max-width: 300px;
-                text-align: center;
             }
 
-            .legal-modal {
+            .modal {
                 width: 95%;
                 margin: 10px;
             }
 
-            .legal-modal-content {
+            .modal-content, .legal-modal-content {
                 padding: 2rem 1rem 1rem 1rem;
             }
 
@@ -558,9 +681,27 @@
                 flex-direction: column;
                 gap: 1rem;
             }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
         }
 
-        /* ANIMATIONS SIMPLES */
+        @media (max-width: 480px) {
+            .hero {
+                padding: 1.5rem 1rem;
+            }
+            
+            .service {
+                padding: 1.5rem;
+            }
+            
+            .faq-section, .contact-section, .callback-section, .social-section, .newsletter-section {
+                padding: 2rem 1rem;
+            }
+        }
+
+        /* ANIMATIONS */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -570,10 +711,30 @@
             animation: fadeIn 0.8s ease-out;
         }
 
-        /* Style pour s'assurer que les boutons sont visibles */
-        .cta-button:focus, .callback-button:focus, .legal-button:focus, .linkedin-button:focus {
-            outline: 2px solid #ffd700;
+        /* Améliorations accessibilité */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Focus visible pour l'accessibilité */
+        button:focus-visible,
+        a:focus-visible {
+            outline: 2px solid var(--light-gold);
             outline-offset: 2px;
+        }
+
+        /* Loading states */
+        .loading {
+            opacity: 0.7;
+            pointer-events: none;
         }
     </style>
 </head>
@@ -581,11 +742,11 @@
     <!-- HEADER -->
     <header>
         <div class="header-content">
-            <img src="logo.png.jpg" alt="ATKAN Consulting - Formation pédagogique innovante">
+            <img src="logo.png.jpg" alt="ATKAN Consulting - Formation pédagogique innovante" width="80" height="80">
             <div>
                 <h1>ATKAN CONSULTING</h1>
-                <p>L’intelligence humaine au cœur de la transformation</p>
-                 <p>Pédagogies innovantes</p>
+                <p>L'intelligence humaine au cœur de la transformation</p>
+                <p>Pédagogies innovantes</p>
                 <p>Action & Accomplissement</p>
             </div>
         </div>
@@ -600,7 +761,7 @@
                 <li><a href="#leviers">Nos leviers</a></li>
                 <li><a href="#faq">FAQ</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="Catalogue 2025.pdf" class="catalog-btn" target="_blank">CATALOGUE 2025</a></li>
+                <li><a href="Catalogue 2025.pdf" class="catalog-btn" target="_blank" rel="noopener">CATALOGUE 2025</a></li>
             </ul>
         </div>
     </nav>
@@ -609,26 +770,28 @@
     <main>
         <!-- SECTION HERO -->
         <section class="hero animate-in" id="accueil">
-            <h2>Bienvenue chez ATKAN CONSULTING - L’intelligence humaine au cœur de la transformation.</h2>
+            <h2>Bienvenue chez ATKAN CONSULTING - L'intelligence humaine au cœur de la transformation.</h2>
             
             <p>Ici, pas de recettes miracles ni de modèles préfabriqués.
 Chaque organisation a son rythme, sa culture, ses défis.
-C’est pourquoi nous concevons, avec vous, des stratégies d’apprentissage et d’innovation qui allient pédagogie active, intelligence artificielle et ancrage terrain.
+C'est pourquoi nous concevons, avec vous, des stratégies d'apprentissage et d'innovation qui allient pédagogie active, intelligence artificielle et ancrage terrain.
 Notre ambition : transformer vos pratiques, développer vos talents, et inscrire durablement le changement dans la réalité de vos équipes.
 </p>
            
-            
-            <!-- BOUTON CORRIGÉ -->
+            <!-- BOUTONS OPTIMISÉS -->
             <div class="button-container">
-                <a href="#contact" class="cta-button" style="color: #000000 !important; text-decoration: none;">
+                <a href="#contact" class="btn cta-button">
                     Demander un devis personnalisé
                 </a>
-                <a href="https://calendly.com/contact-atkanconsulting/30min" class="callback-button" target="_blank" rel="noopener" style="color: #ffffff !important; text-decoration: none;">
-                  ☎️ Être rappelé
+                <a href="https://calendly.com/contact-atkanconsulting/30min" class="btn callback-button" target="_blank" rel="noopener">
+                  <span aria-hidden="true">☎️</span> Être rappelé
                 </a>
-                <a href="https://www.linkedin.com/company/atkan-consulting" class="linkedin-button" target="_blank" rel="noopener" style="color: #ffffff !important; text-decoration: none;">
+                <a href="https://www.linkedin.com/company/atkan-consulting" class="btn linkedin-button" target="_blank" rel="noopener">
                    LinkedIn
                 </a>
+                <button class="btn newsletter-button" id="newsletter-open-btn">
+                    <span aria-hidden="true">📧</span> S'inscrire à la newsletter
+                </button>
             </div>
         </section>
 
@@ -699,41 +862,57 @@ Notre ambition : transformer vos pratiques, développer vos talents, et inscrire
                 
                 <div class="button-container">
                     <a href="mailto:contact@atkanconsulting.fr?subject=Demande%20de%20devis%20personnalisé&body=Bonjour,%20je%20suis%20intéressé(e)%20par%20vos%20formations..." 
-                       class="cta-button" 
-                       style="color: #000000 !important; text-decoration: none;">
+                       class="btn cta-button">
                        Demander un devis personnalisé
                     </a>
                     
                     <a href="https://calendly.com/contact-atkanconsulting/30min" 
-                       class="callback-button" 
+                       class="btn callback-button" 
                        target="_blank" 
-                       rel="noopener"
-                       style="color: #ffffff !important; text-decoration: none;">
+                       rel="noopener">
                        Être rappelé
                     </a>
 
                     <a href="https://www.linkedin.com/company/atkan-consulting" 
-                       class="linkedin-button" 
+                       class="btn linkedin-button" 
                        target="_blank" 
-                       rel="noopener"
-                       style="color: #ffffff !important; text-decoration: none;">
+                       rel="noopener">
                        Nous suivre sur LinkedIn
                     </a>
+
+                    <button class="btn newsletter-button" id="newsletter-open-btn-contact">
+                        <span aria-hidden="true">📧</span> S'inscrire à la newsletter
+                    </button>
                 </div>
             </div>
         </section>
 
-        <!-- NOUVELLE SECTION RÉSEAUX SOCIAUX -->
+        <!-- SECTION NEWSLETTER -->
+        <section class="newsletter-section animate-in">
+            <h2>Restez informé avec notre newsletter</h2>
+            <p>Recevez nos dernières actualités, conseils en formation pédagogique, innovations en IA éducative et offres exclusives directement dans votre boîte email.</p>
+            
+            <div class="button-container">
+                <button class="btn newsletter-button" id="newsletter-open-btn-section">
+                    <span aria-hidden="true">📧</span> S'abonner à la newsletter
+                </button>
+            </div>
+            
+            <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #cccccc;">
+                <em>Désabonnement à tout moment • Pas de spam • Respect de votre vie privée</em>
+            </p>
+        </section>
+
+        <!-- SECTION RÉSEAUX SOCIAUX -->
         <section class="social-section animate-in">
-            <h2> Rejoignez-nous sur LinkedIn</h2>
+            <h2>Rejoignez-nous sur LinkedIn</h2>
             <p>Suivez ATKAN Consulting sur LinkedIn pour rester informé des dernières actualités en formation pédagogique, découvrir nos conseils en innovation éducative et échanger avec notre communauté de professionnels.</p>
             
             <div class="button-container">
                 <a href="https://www.linkedin.com/company/atkan-consulting" 
-                   class="linkedin-button" 
+                   class="btn linkedin-button" 
                    target="_blank" 
-                   rel="noopener"
-                   style="color: #ffffff !important; text-decoration: none; font-size: 1.2rem; padding: 18px 40px;">
+                   rel="noopener">
                     Suivre sur LinkedIn
                 </a>
             </div>
@@ -743,18 +922,17 @@ Notre ambition : transformer vos pratiques, développer vos talents, et inscrire
             </p>
         </section>
 
-        <!-- NOUVELLE SECTION RAPPEL -->
+        <!-- SECTION RAPPEL -->
         <section class="callback-section animate-in">
-            <h Disponible pour un appel de 30 minutes</h2>
+            <h2>Disponible pour un appel de 30 minutes</h2>
             <p>Prenez rendez-vous directement dans mon calendrier pour un appel découverte de 30 minutes. Nous pourrons échanger sur vos besoins spécifiques et voir comment ATKAN Consulting peut vous accompagner.</p>
             
             <div class="button-container">
                 <a href="https://calendly.com/contact-atkanconsulting/30min" 
-                   class="callback-button" 
+                   class="btn callback-button" 
                    target="_blank" 
-                   rel="noopener"
-                   style="color: #ffffff !important; text-decoration: none; font-size: 1.2rem; padding: 18px 40px;">
-                   🗓️ Prendre rendez-vous maintenant
+                   rel="noopener">
+                   <span aria-hidden="true">🗓️</span> Prendre rendez-vous maintenant
                 </a>
             </div>
             
@@ -771,10 +949,193 @@ Notre ambition : transformer vos pratiques, développer vos talents, et inscrire
         </section>
     </main>
 
+    <!-- MODAL NEWSLETTER -->
+    <div class="modal-overlay" id="newsletter-modal">
+        <div class="modal">
+            <button class="modal-close" id="newsletter-modal-close" aria-label="Fermer la newsletter">×</button>
+            <div class="modal-content">
+                <!-- Begin Brevo Form -->
+                <div class="sib-form" style="text-align: center; background-color: #000000;">
+                    <div id="sib-form-container" class="sib-form-container">
+                        <div id="error-message" class="sib-form-message-panel" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;max-width:540px;">
+                            <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                                <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
+                                    <path d="M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-11.49 120h22.979c6.823 0 12.274 5.682 11.99 12.5l-7 168c-.268 6.428-5.556 11.5-11.99 11.5h-8.979c-6.433 0-11.722-5.073-11.99-11.5l-7-168c-.283-6.818 5.167-12.5 11.99-12.5zM256 340c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28z" />
+                                </svg>
+                                <span class="sib-form-message-panel__inner-text">
+                                    Nous n'avons pas pu confirmer votre inscription.
+                                </span>
+                            </div>
+                        </div>
+                        <div></div>
+                        <div id="success-message" class="sib-form-message-panel" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#085229; background-color:#e7faf0; border-radius:3px; border-color:#13ce66;max-width:540px;">
+                            <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                                <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
+                                    <path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 464c-118.664 0-216-96.055-216-216 0-118.663 96.055-216 216-216 118.664 0 216 96.055 216 216 0 118.663-96.055 216-216 216zm141.63-274.961L217.15 376.071c-4.705 4.667-12.303 4.637-16.97-.068l-85.878-86.572c-4.667-4.705-4.637-12.303.068-16.97l8.52-8.451c4.705-4.667 12.303-4.637 16.97.068l68.976 69.533 163.441-162.13c4.705-4.667 12.303-4.637 16.97.068l8.451 8.52c4.668 4.705 4.637 12.303-.068 16.97z" />
+                                </svg>
+                                <span class="sib-form-message-panel__inner-text">
+                                    ATKAN CONSULTING vous remercie et vous confirme votre inscription. À très bientôt avec nos newsletters.
+                                </span>
+                            </div>
+                        </div>
+                        <div></div>
+                        <div id="sib-container" class="sib-container--large sib-container--vertical" style="text-align:center; background-color:#ffffff; max-width:540px; border-radius:3px; border-width:1px; border-color:#d4af37; border-style:solid; direction:ltr">
+                            <form id="sib-form" method="POST" action="https://1e301ca2.sibforms.com/serve/MUIFADTzleZBeakewx0GfwPRlROakK_ojWQka_UOHa9RKLjRXKO1Pt3ob7yHi3_qzsSAdtjIUpiKF7JPNisthLPsxGqKVdWBFzSD8bYFsFjXNfHV5Kv9NFjTvRgxRA4fPCrxDrTAZ2Yt8khauIO7xP3wBGJrWpKBsUSfGqZEnvPnk6tifb9FLtAcnuswj7JBvurTmlRIqXztc8Gu" data-type="subscription">
+                                <div style="padding: 8px 0;">
+                                    <div class="sib-form-block" style="font-size:31px; text-align:center; font-weight:700; font-family:Helvetica, sans-serif; color:#d4af37; background-color:transparent; text-align:center">
+                                        <p>Newsletter ATKAN Consulting</p>
+                                    </div>
+                                </div>
+                                <div style="padding: 8px 0;">
+                                    <div class="sib-form-block" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#ffffff; background-color:transparent; text-align:left">
+                                        <div class="sib-text-form-block">
+                                            <p>Inscrivez-vous à notre newsletter pour suivre nos actualités.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="padding: 8px 0;">
+                                    <div class="sib-input sib-form-block">
+                                        <div class="form__entry entry_block">
+                                            <div class="form__label-row ">
+                                                <label class="entry__label" style="font-weight: 700; text-align:left; font-size:16px; text-align:left; font-weight:700; font-family:Helvetica, sans-serif; color:#3c4858;" for="NOM" data-required="*">Entrez votre NOM</label>
+
+                                                <div class="entry__field">
+                                                    <input class="input " maxlength="200" type="text" id="NOM" name="NOM" autocomplete="family-name" placeholder="NOM" data-required="true" required />
+                                                </div>
+                                            </div>
+
+                                            <label class="entry__error entry__error--primary" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;">
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="padding: 8px 0;">
+                                    <div class="sib-input sib-form-block">
+                                        <div class="form__entry entry_block">
+                                            <div class="form__label-row ">
+                                                <label class="entry__label" style="font-weight: 700; text-align:left; font-size:16px; text-align:left; font-weight:700; font-family:Helvetica, sans-serif; color:#3c4858;" for="PRENOM" data-required="*">Entrez votre PRENOM</label>
+
+                                                <div class="entry__field">
+                                                    <input class="input " maxlength="200" type="text" id="PRENOM" name="PRENOM" autocomplete="given-name" placeholder="PRENOM" data-required="true" required />
+                                                </div>
+                                            </div>
+
+                                            <label class="entry__error entry__error--primary" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;">
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="padding: 8px 0;">
+                                    <div class="sib-sms-field sib-form-block">
+                                        <div class="form__entry entry_block">
+                                            <div class="form__label-row ">
+                                                <label class="entry__label" style="font-weight: 700; text-align:left; font-size:16px; text-align:left; font-weight:700; font-family:Helvetica, sans-serif; color:#3c4858;" for="LANDLINE_NUMBER" data-required="*">Entrez votre NUMERO DE TELEPHONE</label>
+
+                                                <div class="sib-sms-input-wrapper" style="direction:ltr">
+                                                    <div class="sib-sms-input" data-placeholder="" data-required="1" data-country-code="FR" data-whatsapp-country-code="FR" data-value="" data-whatsappvalue="" data-attributename="LANDLINE_NUMBER">
+                                                        <div class="entry__field">
+                                                            <select class="input" name="SMS__COUNTRY_CODE" data-required="true">
+                                                                <option value="+33" selected>+33 FR</option>
+                                                                <option value="+1">+1 US</option>
+                                                                <option value="+44">+44 GB</option>
+                                                                <option value="+49">+49 DE</option>
+                                                                <option value="+39">+39 IT</option>
+                                                                <option value="+34">+34 ES</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="entry__field" style="width: 100%">
+                                                            <input type="tel" class="input" id="SMS" name="SMS" autocomplete="tel" placeholder="NUMERO DE TELEPHONE" data-required="true" required />
+                                                        </div>
+                                                    </div>
+                                                    <div class="sib-sms-tooltip">
+                                                        <div class="sib-sms-tooltip__box">
+                                                            Le champ LANDLINE_NUMBER doit contenir entre 6 et 19 chiffres et inclure le code pays sans utiliser +/0 (ex. : 33xxxxxxxxx pour la France)
+                                                        </div>
+                                                        <span class="sib-sms-tooltip__icon">?</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <label class="entry__error entry__error--primary" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;">
+                                            </label>
+                                            <label class="entry__error entry__error--secondary" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;">
+                                            </label>
+                                            <label class="entry__specification" style="font-size:12px; text-align:left; font-family:Helvetica, sans-serif; color:#8390A4; text-align:left">
+                                                Veuillez renseigner votre numéro de téléphone fixe pour vous inscrire. Ex. : +33123456789
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="padding: 8px 0;">
+                                    <div class="sib-input sib-form-block">
+                                        <div class="form__entry entry_block">
+                                            <div class="form__label-row ">
+                                                <label class="entry__label" style="font-weight: 700; text-align:left; font-size:16px; text-align:left; font-weight:700; font-family:Helvetica, sans-serif; color:#3c4858;" for="EMAIL" data-required="*">Veuillez renseigner votre adresse email</label>
+
+                                                <div class="entry__field">
+                                                    <input class="input " type="email" id="EMAIL" name="EMAIL" autocomplete="email" placeholder="EMAIL" data-required="true" required />
+                                                </div>
+                                            </div>
+
+                                            <label class="entry__error entry__error--primary" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;">
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="padding: 8px 0;">
+                                    <div class="sib-form-block sib-divider-form-block">
+                                        <div style="border: 0; border-bottom: 1px solid #E5EDF6"></div>
+                                    </div>
+                                </div>
+                                <div style="padding: 8px 0;">
+                                    <div class="sib-optin sib-form-block" data-required="true">
+                                        <div class="form__entry entry_mcq">
+                                            <div class="form__label-row ">
+                                                <label class="entry__label" style="font-weight: 700; text-align:left; font-size:16px; text-align:left; font-weight:700; font-family:Helvetica, sans-serif; color:#3c4858;" for="OPT_IN" data-required="*">Opt-in</label>
+                                                <div class="entry__choice" style="">
+                                                    <label>
+                                                        <input type="checkbox" class="input_replaced" value="1" id="OPT_IN" name="OPT_IN" required />
+                                                        <span class="checkbox checkbox_tick_positive"
+                                                style="margin-left:"
+                                                ></span><span style="font-size:14px; text-align:left; font-family:Helvetica, sans-serif; color:#d4af37; background-color:transparent;"><p>J'accepte de recevoir vos e-mails et confirme avoir pris connaissance de votre politique de confidentialité et mentions légales.</p></span> </label>
+                                                </div>
+                                            </div>
+                                            <label class="entry__error entry__error--primary" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;">
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="padding: 8px 0;">
+                                    <div class="sib-form-block sib-divider-form-block">
+                                        <div style="border: 0; border-bottom: 1px solid #E5EDF6"></div>
+                                    </div>
+                                </div>
+                                <div style="padding: 8px 0;">
+                                    <div class="sib-form-block" style="text-align: center">
+                                        <button class="sib-form-block__button sib-form-block__button-with-loader" style="font-size:24px; text-align:center; font-weight:700; font-family:Helvetica, sans-serif; color:#FFFFFF; background-color:#d4af37; border-radius:3px; border-width:0px;" form="sib-form" type="submit">
+                                            <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512" style="">
+                                                <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z" />
+                                            </svg>
+                                            S'INSCRIRE
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <input type="text" name="email_address_check" value="" class="input--hidden">
+                                <input type="hidden" name="locale" value="fr">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Brevo Form -->
+            </div>
+        </div>
+    </div>
+
     <!-- MODAL MENTIONS LÉGALES -->
-    <div class="legal-modal-overlay" id="legal-modal">
-        <div class="legal-modal">
-            <button class="legal-modal-close" id="legal-modal-close" aria-label="Fermer les mentions légales">×</button>
+    <div class="modal-overlay" id="legal-modal">
+        <div class="modal legal-modal">
+            <button class="modal-close" id="legal-modal-close" aria-label="Fermer les mentions légales">×</button>
             <div class="legal-modal-content">
                 <h2>MENTIONS LÉGALES</h2>
                 
@@ -837,16 +1198,19 @@ Notre ambition : transformer vos pratiques, développer vos talents, et inscrire
 
     <!-- FOOTER -->
     <footer>
-        <p>© 2025 ATKAN CONSULTING. Tous droits réservés.©</p>
+        <p>© 2025 ATKAN CONSULTING. Tous droits réservés.</p>
         <div class="footer-links">
             <a href="https://calendly.com/contact-atkanconsulting/30min" target="_blank" rel="noopener">
-    
+                Prendre rendez-vous
             </a>
             <a href="https://www.linkedin.com/company/atkan-consulting" target="_blank" rel="noopener">
-                
+                LinkedIn
             </a>
             <button class="legal-button" id="legal-modal-open-footer" style="background: transparent; border: none; color: #ffd700; cursor: pointer;">
                 Mentions Légales
+            </button>
+            <button class="legal-button" id="newsletter-open-btn-footer" style="background: transparent; border: none; color: #ffd700; cursor: pointer;">
+                Newsletter
             </button>
         </div>
     </footer>
@@ -865,11 +1229,17 @@ Notre ambition : transformer vos pratiques, développer vos talents, et inscrire
             function openLegalModal() {
                 legalModal.classList.add('show');
                 document.body.style.overflow = 'hidden';
+                // Focus sur le bouton de fermeture pour l'accessibilité
+                setTimeout(() => legalModalClose.focus(), 100);
             }
 
             function closeLegalModal() {
                 legalModal.classList.remove('show');
                 document.body.style.overflow = '';
+                // Retour au bouton d'ouverture pour l'accessibilité
+                if (document.activeElement === legalModalClose) {
+                    legalModalOpen.focus();
+                }
             }
 
             // Événements d'ouverture
@@ -893,19 +1263,83 @@ Notre ambition : transformer vos pratiques, développer vos talents, et inscrire
                 }
             });
 
-            // Fermer avec la touche Échap
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && legalModal.classList.contains('show')) {
-                    closeLegalModal();
+            // Gestion de la modal newsletter
+            const newsletterModal = document.getElementById('newsletter-modal');
+            const newsletterModalClose = document.getElementById('newsletter-modal-close');
+
+            function openNewsletterModal() {
+                newsletterModal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+                // Focus sur le bouton de fermeture pour l'accessibilité
+                setTimeout(() => newsletterModalClose.focus(), 100);
+            }
+
+            function closeNewsletterModal() {
+                newsletterModal.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+
+            // Événements de fermeture newsletter
+            if (newsletterModalClose) {
+                newsletterModalClose.addEventListener('click', closeNewsletterModal);
+            }
+
+            // Fermer en cliquant sur l'overlay
+            newsletterModal.addEventListener('click', (e) => {
+                if (e.target === newsletterModal) {
+                    closeNewsletterModal();
                 }
             });
+
+            // Boutons d'ouverture de la newsletter
+            const newsletterOpenBtns = [
+                'newsletter-open-btn',
+                'newsletter-open-btn-contact', 
+                'newsletter-open-btn-section',
+                'newsletter-open-btn-footer'
+            ];
+
+            newsletterOpenBtns.forEach(btnId => {
+                const btn = document.getElementById(btnId);
+                if (btn) {
+                    btn.addEventListener('click', openNewsletterModal);
+                }
+            });
+
+            // Fermer avec la touche Échap
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    if (legalModal.classList.contains('show')) {
+                        closeLegalModal();
+                    }
+                    if (newsletterModal.classList.contains('show')) {
+                        closeNewsletterModal();
+                    }
+                }
+            });
+
+            // Afficher la newsletter après 3 secondes
+            setTimeout(() => {
+                // Vérifier si l'utilisateur n'a pas déjà fermé la newsletter récemment
+                const newsletterClosed = localStorage.getItem('newsletterClosed');
+                if (!newsletterClosed) {
+                    openNewsletterModal();
+                }
+            }, 3000);
+
+            // Stocker la fermeture de la newsletter
+            if (newsletterModalClose) {
+                newsletterModalClose.addEventListener('click', () => {
+                    localStorage.setItem('newsletterClosed', 'true');
+                });
+            }
 
             // Smooth scroll pour la navigation
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     // Ne pas empêcher le comportement pour les liens mailto
                     if (this.getAttribute('href').startsWith('#') && 
-                        !this.classList.contains('cta-button')) {
+                        !this.classList.contains('btn')) {
                         e.preventDefault();
                         const target = document.querySelector(this.getAttribute('href'));
                         if (target) {
@@ -935,7 +1369,7 @@ Notre ambition : transformer vos pratiques, développer vos talents, et inscrire
             }, observerOptions);
 
             // Observer les éléments avec animation
-            document.querySelectorAll('.service, .hero, .faq-section, .contact-section, .callback-section, .social-section').forEach(el => {
+            document.querySelectorAll('.service, .hero, .faq-section, .contact-section, .callback-section, .social-section, .newsletter-section').forEach(el => {
                 el.style.opacity = '0';
                 el.style.transform = 'translateY(20px)';
                 el.style.transition = 'all 0.6s ease-out';
@@ -943,9 +1377,9 @@ Notre ambition : transformer vos pratiques, développer vos talents, et inscrire
             });
 
             // Vérification que les boutons CTA sont cliquables
-            document.querySelectorAll('.cta-button, .callback-button, .linkedin-button').forEach(button => {
+            document.querySelectorAll('.btn').forEach(button => {
                 button.addEventListener('click', function(e) {
-                    console.log('Bouton cliqué:', this.getAttribute('href'));
+                    console.log('Bouton cliqué:', this.getAttribute('href') || this.id);
                     // Le comportement par défaut (lien) est conservé
                 });
             });
@@ -955,6 +1389,12 @@ Notre ambition : transformer vos pratiques, développer vos talents, et inscrire
                 link.addEventListener('click', function() {
                     console.log('Clic sur le lien Calendly détecté');
                     // Ici vous pourriez ajouter Google Analytics ou autre tracking
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'calendly_click', {
+                            'event_category': 'engagement',
+                            'event_label': this.getAttribute('href')
+                        });
+                    }
                 });
             });
 
@@ -963,9 +1403,50 @@ Notre ambition : transformer vos pratiques, développer vos talents, et inscrire
                 link.addEventListener('click', function() {
                     console.log('Clic sur le lien LinkedIn détecté');
                     // Ici vous pourriez ajouter Google Analytics ou autre tracking
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'linkedin_click', {
+                            'event_category': 'social',
+                            'event_label': this.getAttribute('href')
+                        });
+                    }
                 });
             });
+
+            // Amélioration du formulaire Brevo
+            const brevoForm = document.getElementById('sib-form');
+            if (brevoForm) {
+                brevoForm.addEventListener('submit', function(e) {
+                    console.log('Formulaire Brevo soumis');
+                    // Ajouter un indicateur de chargement
+                    const submitBtn = this.querySelector('button[type="submit"]');
+                    if (submitBtn) {
+                        submitBtn.classList.add('loading');
+                    }
+                });
+            }
         });
+
+        // Scripts Brevo
+        window.REQUIRED_CODE_ERROR_MESSAGE = 'Veuillez choisir un code pays';
+        window.LOCALE = 'fr';
+        window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "Les informations que vous avez fournies ne sont pas valides. Veuillez vérifier le format du champ et réessayer.";
+
+        window.REQUIRED_ERROR_MESSAGE = "Vous devez renseigner ce champ. ";
+
+        window.GENERIC_INVALID_MESSAGE = "Les informations que vous avez fournies ne sont pas valides. Veuillez vérifier le format du champ et réessayer.";
+
+        window.translation = {
+            common: {
+                selectedList: '{quantity} liste sélectionnée',
+                selectedLists: '{quantity} listes sélectionnées',
+                selectedOption: '{quantity} sélectionné',
+                selectedOptions: '{quantity} sélectionnés',
+            }
+        };
+
+        var AUTOHIDE = Boolean(0);
     </script>
+
+    <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
 </body>
 </html>
