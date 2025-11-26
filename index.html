@@ -6,6 +6,11 @@
     <title>ATKAN Consulting - Formation pédagogique innovante avec IA</title>
     <meta name="description" content="Formations sur mesure en pédagogie active, IA générative et leadership. Accompagnement personnalisé pour formateurs et responsables pédagogiques.">
     
+    <!-- Polices Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
     <!-- Styles Brevo pour la newsletter -->
     <style>
       @font-face {
@@ -74,6 +79,10 @@
             --text-secondary: #cccccc;
             --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             --transition: all 0.3s ease;
+            
+            /* Nouvelles polices */
+            --font-body: 'Poppins', sans-serif;
+            --font-heading: 'Montserrat', sans-serif;
         }
 
         html {
@@ -82,13 +91,18 @@
         }
 
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-family: var(--font-body);
             line-height: 1.6;
             background: var(--dark-bg);
             color: var(--text-primary);
             min-height: 100vh;
             overflow-x: hidden;
             -webkit-text-size-adjust: 100%;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 600;
         }
 
         /* === SKIP LINK - ACCESSIBILITÉ === */
@@ -115,14 +129,12 @@
             background: linear-gradient(135deg, var(--gold), #333);
             color: var(--dark-bg);
             padding: 1rem;
-            text-align: center;
         }
 
         .header-content {
             display: flex;
-            flex-direction: column;
             align-items: center;
-            gap: 1rem;
+            gap: 1.5rem;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -135,15 +147,22 @@
             object-fit: cover;
         }
 
+        .header-text {
+            flex: 1;
+        }
+
         header h1 {
             font-size: clamp(1.5rem, 4vw, 2rem);
             font-weight: 700;
             color: var(--dark-bg);
+            margin-bottom: 0.25rem;
         }
 
         header p {
             font-style: italic;
             color: var(--dark-bg);
+            margin-bottom: 0.25rem;
+            font-size: 0.9rem;
         }
 
         /* === NAVIGATION === */
@@ -188,6 +207,7 @@
             border-radius: 20px;
             transition: var(--transition);
             display: block;
+            font-family: var(--font-body);
         }
 
         nav ul li a:hover,
@@ -208,6 +228,20 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 1rem;
+        }
+
+        /* === SYSTÈME D'ONGLETS === */
+        .tab-container {
+            margin-bottom: 2rem;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .tab-content.active {
+            display: block;
         }
 
         /* === SECTION HERO === */
@@ -256,6 +290,7 @@
             min-height: 50px;
             gap: 0.5rem;
             min-width: 160px;
+            font-family: var(--font-body);
         }
 
         .cta-button {
@@ -326,6 +361,7 @@
             cursor: pointer;
             font-size: 0.9rem;
             margin: 0.5rem;
+            font-family: var(--font-body);
         }
 
         .legal-button:hover,
@@ -911,9 +947,10 @@
     <header>
         <div class="header-content">
             <img src="logo.png.jpg" alt="ATKAN Consulting - Logo" width="80" height="80">
-            <div>
-                 <p>L'intelligence humaine au cœur de la transformation</p>
-                               <p>Action & Accomplissement</p>
+            <div class="header-text">
+                <h1>ATKAN Consulting</h1>
+                <p>L'intelligence humaine au cœur de la transformation</p>
+                <p>Action & Accomplissement</p>
             </div>
         </div>
     </header>
@@ -925,11 +962,11 @@
                 ☰ Menu
             </button>
             <ul id="main-menu">
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#formations">Nos formations</a></li>
-                <li><a href="#leviers">Nos leviers</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#" class="tab-link" data-tab="accueil">Accueil</a></li>
+                <li><a href="#" class="tab-link" data-tab="formations">Nos formations</a></li>
+                <li><a href="#" class="tab-link" data-tab="leviers">Nos leviers</a></li>
+                <li><a href="#" class="tab-link" data-tab="faq">FAQ</a></li>
+                <li><a href="#" class="tab-link" data-tab="contact">Contact</a></li>
                 <li><a href="Catalogue 2025.pdf" class="catalog-btn" target="_blank" rel="noopener">CATALOGUE 2025</a></li>
             </ul>
         </div>
@@ -937,178 +974,234 @@
 
     <!-- CONTENU PRINCIPAL -->
     <main id="main-content">
-        <!-- SECTION HERO -->
-        <section class="hero animate-in" id="accueil">
-            <h2>Bienvenue chez ATKAN CONSULTING - L'intelligence humaine au cœur de la transformation.</h2>
-            
-            <p>Ici, pas de recettes miracles ni de modèles préfabriqués.
-Chaque organisation a son rythme, sa culture, ses défis.
-C'est pourquoi nous concevons, avec vous, des stratégies d'apprentissage et d'innovation qui allient pédagogie active, intelligence artificielle et ancrage terrain.
-Notre ambition : transformer vos pratiques, développer vos talents, et inscrire durablement le changement dans la réalité de vos équipes.
-</p>
-           
-            <!-- BOUTONS OPTIMISÉS -->
-            <div class="button-container">
-                <a href="#contact" class="btn cta-button">
-                    Demander un devis personnalisé
-                </a>
-                <a href="https://calendly.com/contact-atkanconsulting/30min" class="btn callback-button" target="_blank" rel="noopener">
-                  <span aria-hidden="true"> </span> Être rappelé
-                </a>
-                <a href="https://www.linkedin.com/company/atkan-consulting" class="btn linkedin-button" target="_blank" rel="noopener">
-                   LinkedIn
-                </a>
-                <button class="btn newsletter-button" id="newsletter-open-btn">
-                    <span aria-hidden="true"> </span> S'inscrire à la newsletter
-                </button>
-            </div>
-        </section>
-
-        <!-- FORMATIONS -->
-        <h2 class="section-title" id="formations">Nos formations spécialisées</h2>
-        
-        <div class="services">
-            <article class="service">
-                <h3>Pédagogies Actives et Apprentissage</h3>
-                <p>Comprendre et expérimenter la classe inversée, la pédagogie par projet et coopérative. Outils : Canva, Padlet, Genially, Quizizz</p>
-            </article>
-            
-            <article class="service">
-                <h3>Formation avec l'IA Générative</h3>
-                <p>Créer des supports avec ChatGPT, Notion AI, Gemini, et comprendre les enjeux éthiques de l'IA.</p>
-            </article>
-            
-            <article class="service">
-                <h3>Classe virtuelle efficace</h3>
-                <p>Structurer un parcours à distance, animer et suivre une classe virtuelle participative. Outils : Zoom, Teams, Klaxoon, Classroom</p>
-            </article>
-        </div>
-
-        <!-- LEVIERS -->
-        <section id="leviers">
-            <h2 class="section-title">Nos leviers d'action</h2>
-            <div class="services">
-                <article class="service">
-                    <h3>Pédagogies innovantes</h3>
-                    <p>Favoriser l'engagement par des méthodes actives, expérientielles et adaptées à vos contextes.</p>
-                </article>
-                <article class="service">
-                    <h3>Formations sur mesure</h3>
-                    <p>Des parcours ciblés, conçus autour de vos besoins opérationnels et de vos priorités stratégiques.</p>
-                </article>
-                <article class="service">
-                    <h3>Cohésion & coopération</h3>
-                    <p>Recréer la confiance, fluidifier les relations et renforcer le travail collectif au quotidien.</p>
-                </article>
-            </div>
-        </section>
-
-        <!-- FAQ -->
-        <section class="faq-section" id="faq">
-            <h2 class="section-title">Questions fréquentes</h2>
-            <div class="faq-item">
-                <h3 class="faq-question">Quels sont les avantages de la pédagogie active ?</h3>
-                <p class="faq-answer">La pédagogie active améliore l'engagement des apprenants, favorise la mémorisation et développe l'autonomie. Elle permet une meilleure adaptation aux différents styles d'apprentissage.</p>
-            </div>
-            <div class="faq-item">
-                <h3 class="faq-question">Comment l'IA peut-elle améliorer la formation ?</h3>
-                <p class="faq-answer">L'IA générative permet de créer du contenu personnalisé, d'automatiser certaines tâches répétitives, de générer des exercices adaptés et de fournir un feedback instantané aux apprenants.</p>
-            </div>
-            <div class="faq-item">
-                <h3 class="faq-question">Vos formations sont-elles certifiantes ?</h3>
-                <p class="faq-answer">Oui, nos formations peuvent être certifiantes selon vos besoins. Nous travaillons avec des centres de formations certificateurs reconnus.</p>
-            </div>
-        </section>
-
-        <!-- CONTACT -->
-        <section class="contact-section" id="contact">
-            <h2 class="section-title">Contactez-Nous</h2>
-            <div class="contact-info">
-                <p><strong>Email :</strong> <a href="mailto:contact@atkanconsulting.fr">contact@atkanconsulting.fr</a></p>
-                <p><strong>Téléphone :</strong> <a href="tel:+33650417152">+33 6 50 41 71 52</a></p>
-                <p><strong>LinkedIn :</strong> <a href="https://www.linkedin.com/company/atkan-consulting" target="_blank" rel="noopener">Notre page LinkedIn</a></p>
-                <p>Prêt(e) à transformer votre organisation ? Contactez-nous pour un échange personnalisé.</p>
-                
-                <div class="button-container">
-                    <a href="mailto:contact@atkanconsulting.fr?subject=Demande%20de%20devis%20personnalisé&body=Bonjour,%20je%20suis%20intéressé(e)%20par%20vos%20formations..." 
-                       class="btn cta-button">
-                       Demander un devis personnalisé
-                    </a>
+        <div class="tab-container">
+            <!-- ONGLET ACCUEIL -->
+            <div id="accueil" class="tab-content active">
+                <!-- SECTION HERO -->
+                <section class="hero animate-in">
+                    <h2>Bienvenue chez ATKAN CONSULTING - L'intelligence humaine au cœur de la transformation.</h2>
                     
-                    <a href="https://calendly.com/contact-atkanconsulting/30min" 
-                       class="btn callback-button" 
-                       target="_blank" 
-                       rel="noopener">
-                       Être rappelé
-                    </a>
+                    <p>Ici, pas de recettes miracles ni de modèles préfabriqués.
+                    Chaque organisation a son rythme, sa culture, ses défis.
+                    C'est pourquoi nous concevons, avec vous, des stratégies d'apprentissage et d'innovation qui allient pédagogie active, intelligence artificielle et ancrage terrain.
+                    Notre ambition : transformer vos pratiques, développer vos talents, et inscrire durablement le changement dans la réalité de vos équipes.
+                    </p>
+                   
+                    <!-- BOUTONS OPTIMISÉS -->
+                    <div class="button-container">
+                        <a href="#" class="btn cta-button tab-link" data-tab="contact">
+                            Demander un devis personnalisé
+                        </a>
+                        <a href="https://calendly.com/contact-atkanconsulting/30min" class="btn callback-button" target="_blank" rel="noopener">
+                          <span aria-hidden="true"> </span> Être rappelé
+                        </a>
+                        <a href="https://www.linkedin.com/company/atkan-consulting" class="btn linkedin-button" target="_blank" rel="noopener">
+                           LinkedIn
+                        </a>
+                        <button class="btn newsletter-button" id="newsletter-open-btn">
+                            <span aria-hidden="true"> </span> S'inscrire à la newsletter
+                        </button>
+                    </div>
+                </section>
 
-                    <a href="https://www.linkedin.com/company/atkan-consulting" 
-                       class="btn linkedin-button" 
-                       target="_blank" 
-                       rel="noopener">
-                       Nous suivre sur LinkedIn
-                    </a>
+                <!-- SECTION NEWSLETTER -->
+                <section class="newsletter-section animate-in">
+                    <h2>Restez informé avec notre newsletter</h2>
+                    <p>Recevez nos dernières actualités, conseils en formation pédagogique, innovations en IA éducative et offres exclusives directement dans votre boîte email.</p>
+                    
+                    <div class="button-container">
+                        <button class="btn newsletter-button" id="newsletter-open-btn-section">
+                            <span aria-hidden="true">📧</span> S'abonner à la newsletter
+                        </button>
+                    </div>
+                    
+                    <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #cccccc;">
+                        <em>Désabonnement à tout moment • Pas de spam • Respect de votre vie privée</em>
+                    </p>
+                </section>
 
-                    <button class="btn newsletter-button" id="newsletter-open-btn-contact">
-                        <span aria-hidden="true">📧</span> S'inscrire à la newsletter
-                    </button>
+                <!-- SECTION RÉSEAUX SOCIAUX -->
+                <section class="social-section animate-in">
+                    <h2>Rejoignez-nous sur LinkedIn</h2>
+                    <p>Suivez ATKAN Consulting sur LinkedIn pour rester informé des dernières actualités en formation pédagogique, découvrir nos conseils en innovation éducative et échanger avec notre communauté de professionnels.</p>
+                    
+                    <div class="button-container">
+                        <a href="https://www.linkedin.com/company/atkan-consulting" 
+                           class="btn linkedin-button" 
+                           target="_blank" 
+                           rel="noopener">
+                            Suivre sur LinkedIn
+                        </a>
+                    </div>
+                    
+                    <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #cccccc;">
+                        <em>Actualités pédagogiques • Conseils experts • Réseautage professionnel</em>
+                    </p>
+                </section>
+
+                <!-- SECTION RAPPEL -->
+                <section class="callback-section animate-in">
+                    <h2>Disponible pour un appel de 30 minutes</h2>
+                    <p>Prenez rendez-vous directement dans mon calendrier pour un appel découverte de 30 minutes. Nous pourrons échanger sur vos besoins spécifiques et voir comment ATKAN Consulting peut vous accompagner.</p>
+                    
+                    <div class="button-container">
+                        <a href="https://calendly.com/contact-atkanconsulting/30min" 
+                           class="btn callback-button" 
+                           target="_blank" 
+                           rel="noopener">
+                           <span aria-hidden="true">🗓️</span> Prendre rendez-vous maintenant
+                        </a>
+                    </div>
+                    
+                    <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #cccccc;">
+                        <em>Réponse garantie sous 24h • Sans engagement • Confidentialité assurée</em>
+                    </p>
+                </section>
+            </div>
+
+            <!-- ONGLET FORMATIONS -->
+            <div id="formations" class="tab-content">
+                <h2 class="section-title">Nos formations spécialisées</h2>
+                
+                <div class="services">
+                    <article class="service">
+                        <h3>Pédagogies Actives et Apprentissage</h3>
+                        <p>Comprendre et expérimenter la classe inversée, la pédagogie par projet et coopérative. Outils : Canva, Padlet, Genially, Quizizz</p>
+                    </article>
+                    
+                    <article class="service">
+                        <h3>Formation avec l'IA Générative</h3>
+                        <p>Créer des supports avec ChatGPT, Notion AI, Gemini, et comprendre les enjeux éthiques de l'IA.</p>
+                    </article>
+                    
+                    <article class="service">
+                        <h3>Classe virtuelle efficace</h3>
+                        <p>Structurer un parcours à distance, animer et suivre une classe virtuelle participative. Outils : Zoom, Teams, Klaxoon, Classroom</p>
+                    </article>
                 </div>
-            </div>
-        </section>
 
-        <!-- SECTION NEWSLETTER -->
-        <section class="newsletter-section animate-in">
-            <h2>Restez informé avec notre newsletter</h2>
-            <p>Recevez nos dernières actualités, conseils en formation pédagogique, innovations en IA éducative et offres exclusives directement dans votre boîte email.</p>
-            
-            <div class="button-container">
-                <button class="btn newsletter-button" id="newsletter-open-btn-section">
-                    <span aria-hidden="true">📧</span> S'abonner à la newsletter
-                </button>
+                <!-- SECTION RAPPEL -->
+                <section class="callback-section animate-in">
+                    <h2>Intéressé par nos formations ?</h2>
+                    <p>Prenez rendez-vous pour un appel découverte de 30 minutes. Nous pourrons échanger sur vos besoins spécifiques et voir comment nos formations peuvent vous accompagner.</p>
+                    
+                    <div class="button-container">
+                        <a href="https://calendly.com/contact-atkanconsulting/30min" 
+                           class="btn callback-button" 
+                           target="_blank" 
+                           rel="noopener">
+                           <span aria-hidden="true">🗓️</span> Prendre rendez-vous
+                        </a>
+                    </div>
+                </section>
             </div>
-            
-            <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #cccccc;">
-                <em>Désabonnement à tout moment • Pas de spam • Respect de votre vie privée</em>
-            </p>
-        </section>
 
-        <!-- SECTION RÉSEAUX SOCIAUX -->
-        <section class="social-section animate-in">
-            <h2>Rejoignez-nous sur LinkedIn</h2>
-            <p>Suivez ATKAN Consulting sur LinkedIn pour rester informé des dernières actualités en formation pédagogique, découvrir nos conseils en innovation éducative et échanger avec notre communauté de professionnels.</p>
-            
-            <div class="button-container">
-                <a href="https://www.linkedin.com/company/atkan-consulting" 
-                   class="btn linkedin-button" 
-                   target="_blank" 
-                   rel="noopener">
-                    Suivre sur LinkedIn
-                </a>
-            </div>
-            
-            <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #cccccc;">
-                <em>Actualités pédagogiques • Conseils experts • Réseautage professionnel</em>
-            </p>
-        </section>
+            <!-- ONGLET LEVIERS -->
+            <div id="leviers" class="tab-content">
+                <h2 class="section-title">Nos leviers d'action</h2>
+                <div class="services">
+                    <article class="service">
+                        <h3>Pédagogies innovantes</h3>
+                        <p>Favoriser l'engagement par des méthodes actives, expérientielles et adaptées à vos contextes.</p>
+                    </article>
+                    <article class="service">
+                        <h3>Formations sur mesure</h3>
+                        <p>Des parcours ciblés, conçus autour de vos besoins opérationnels et de vos priorités stratégiques.</p>
+                    </article>
+                    <article class="service">
+                        <h3>Cohésion & coopération</h3>
+                        <p>Recréer la confiance, fluidifier les relations et renforcer le travail collectif au quotidien.</p>
+                    </article>
+                </div>
 
-        <!-- SECTION RAPPEL -->
-        <section class="callback-section animate-in">
-            <h2>Disponible pour un appel de 30 minutes</h2>
-            <p>Prenez rendez-vous directement dans mon calendrier pour un appel découverte de 30 minutes. Nous pourrons échanger sur vos besoins spécifiques et voir comment ATKAN Consulting peut vous accompagner.</p>
-            
-            <div class="button-container">
-                <a href="https://calendly.com/contact-atkanconsulting/30min" 
-                   class="btn callback-button" 
-                   target="_blank" 
-                   rel="noopener">
-                   <span aria-hidden="true">🗓️</span> Prendre rendez-vous maintenant
-                </a>
+                <!-- SECTION RAPPEL -->
+                <section class="callback-section animate-in">
+                    <h2>Envie d'explorer nos leviers d'action ?</h2>
+                    <p>Discutons de vos besoins spécifiques lors d'un appel de 30 minutes pour voir comment nos approches peuvent transformer votre organisation.</p>
+                    
+                    <div class="button-container">
+                        <a href="https://calendly.com/contact-atkanconsulting/30min" 
+                           class="btn callback-button" 
+                           target="_blank" 
+                           rel="noopener">
+                           <span aria-hidden="true">🗓️</span> Prendre rendez-vous
+                        </a>
+                    </div>
+                </section>
             </div>
-            
-            <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #cccccc;">
-                <em>Réponse garantie sous 24h • Sans engagement • Confidentialité assurée</em>
-            </p>
-        </section>
+
+            <!-- ONGLET FAQ -->
+            <div id="faq" class="tab-content">
+                <section class="faq-section">
+                    <h2 class="section-title">Questions fréquentes</h2>
+                    <div class="faq-item">
+                        <h3 class="faq-question">Quels sont les avantages de la pédagogie active ?</h3>
+                        <p class="faq-answer">La pédagogie active améliore l'engagement des apprenants, favorise la mémorisation et développe l'autonomie. Elle permet une meilleure adaptation aux différents styles d'apprentissage.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question">Comment l'IA peut-elle améliorer la formation ?</h3>
+                        <p class="faq-answer">L'IA générative permet de créer du contenu personnalisé, d'automatiser certaines tâches répétitives, de générer des exercices adaptés et de fournir un feedback instantané aux apprenants.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question">Vos formations sont-elles certifiantes ?</h3>
+                        <p class="faq-answer">Oui, nos formations peuvent être certifiantes selon vos besoins. Nous travaillons avec des centres de formations certificateurs reconnus.</p>
+                    </div>
+                </section>
+
+                <!-- SECTION RAPPEL -->
+                <section class="callback-section animate-in">
+                    <h2>D'autres questions ?</h2>
+                    <p>Nous sommes disponibles pour répondre à toutes vos interrogations lors d'un appel de 30 minutes.</p>
+                    
+                    <div class="button-container">
+                        <a href="https://calendly.com/contact-atkanconsulting/30min" 
+                           class="btn callback-button" 
+                           target="_blank" 
+                           rel="noopener">
+                           <span aria-hidden="true">🗓️</span> Prendre rendez-vous
+                        </a>
+                    </div>
+                </section>
+            </div>
+
+            <!-- ONGLET CONTACT -->
+            <div id="contact" class="tab-content">
+                <section class="contact-section">
+                    <h2 class="section-title">Contactez-Nous</h2>
+                    <div class="contact-info">
+                        <p><strong>Email :</strong> <a href="mailto:contact@atkanconsulting.fr">contact@atkanconsulting.fr</a></p>
+                        <p><strong>Téléphone :</strong> <a href="tel:+33650417152">+33 6 50 41 71 52</a></p>
+                        <p><strong>LinkedIn :</strong> <a href="https://www.linkedin.com/company/atkan-consulting" target="_blank" rel="noopener">Notre page LinkedIn</a></p>
+                        <p>Prêt(e) à transformer votre organisation ? Contactez-nous pour un échange personnalisé.</p>
+                        
+                        <div class="button-container">
+                            <a href="mailto:contact@atkanconsulting.fr?subject=Demande%20de%20devis%20personnalisé&body=Bonjour,%20je%20suis%20intéressé(e)%20par%20vos%20formations..." 
+                               class="btn cta-button">
+                               Demander un devis personnalisé
+                            </a>
+                            
+                            <a href="https://calendly.com/contact-atkanconsulting/30min" 
+                               class="btn callback-button" 
+                               target="_blank" 
+                               rel="noopener">
+                               Être rappelé
+                            </a>
+
+                            <a href="https://www.linkedin.com/company/atkan-consulting" 
+                               class="btn linkedin-button" 
+                               target="_blank" 
+                               rel="noopener">
+                               Nous suivre sur LinkedIn
+                            </a>
+
+                            <button class="btn newsletter-button" id="newsletter-open-btn-contact">
+                                <span aria-hidden="true">📧</span> S'inscrire à la newsletter
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
 
         <!-- SECTION MENTIONS LÉGALES -->
         <section style="text-align: center; margin: 2rem 0;">
@@ -1389,6 +1482,42 @@ Notre ambition : transformer vos pratiques, développer vos talents, et inscrire
         document.addEventListener('DOMContentLoaded', function() {
             console.log('Page ATKAN Consulting chargée avec succès');
 
+            // === GESTION DU SYSTÈME D'ONGLETS ===
+            const tabLinks = document.querySelectorAll('.tab-link');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            // Fonction pour activer un onglet
+            function activateTab(tabId) {
+                // Désactiver tous les onglets
+                tabContents.forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                
+                // Activer l'onglet sélectionné
+                const activeTab = document.getElementById(tabId);
+                if (activeTab) {
+                    activeTab.classList.add('active');
+                }
+                
+                // Mettre à jour l'URL sans recharger la page
+                history.pushState(null, null, `#${tabId}`);
+            }
+            
+            // Gérer les clics sur les liens d'onglets
+            tabLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const tabId = this.getAttribute('data-tab');
+                    activateTab(tabId);
+                });
+            });
+            
+            // Gérer l'URL au chargement de la page
+            if (window.location.hash) {
+                const tabId = window.location.hash.substring(1);
+                activateTab(tabId);
+            }
+
             // === GESTION DE LA NAVIGATION MOBILE ===
             const navToggle = document.querySelector('.nav-toggle');
             const navMenu = document.getElementById('main-menu');
@@ -1527,24 +1656,6 @@ Notre ambition : transformer vos pratiques, développer vos talents, et inscrire
                     localStorage.setItem('newsletterClosed', 'true');
                 });
             }
-
-            // === SMOOTH SCROLL POUR LA NAVIGATION ===
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    // Ne pas empêcher le comportement pour les liens mailto
-                    if (this.getAttribute('href').startsWith('#') && 
-                        !this.classList.contains('btn')) {
-                        e.preventDefault();
-                        const target = document.querySelector(this.getAttribute('href'));
-                        if (target) {
-                            target.scrollIntoView({
-                                behavior: 'smooth',
-                                block: 'start'
-                            });
-                        }
-                    }
-                });
-            });
 
             // === ANIMATION AU SCROLL ===
             const observerOptions = {
