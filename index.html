@@ -126,9 +126,23 @@
 
         /* === HEADER === */
         header {
-            background: linear-gradient(135deg, var(--gold), #333);
+            background: url('image1.jpg') no-repeat center center;
+            background-size: cover;
             color: var(--dark-bg);
             padding: 1rem;
+            position: relative;
+        }
+
+        /* Overlay pour améliorer la lisibilité du texte */
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.85);
+            z-index: 1;
         }
 
         .header-content {
@@ -137,6 +151,8 @@
             gap: 1.5rem;
             max-width: 1200px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
 
         header img {
@@ -1608,7 +1624,7 @@
 
                 <h3>8. Droit applicable et juridiction compétente</h3>
                 <p>Les présentes mentions légales sont régies par le droit français.</p>
-                <p>En cas de litige, et à défaut de résolution amiable, compétence est attribuée aux tribunaux du ressort du siège social d'ATKAN CONSULTING.</p>
+                <p>En cas de litique, et à défaut de résolution amiable, compétence est attribuée aux tribunaux du ressort du siège social d'ATKAN CONSULTING.</p>
             </div>
         </div>
     </div>
