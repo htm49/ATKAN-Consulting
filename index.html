@@ -422,6 +422,92 @@
             line-height: 1.6;
         }
 
+        /* === APPROCHE === */
+        .approach-section {
+            background: linear-gradient(135deg, var(--medium-bg), var(--dark-bg));
+            padding: 2rem 1rem;
+            border-radius: 16px;
+            margin: 2rem 0;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .approach-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .approach-intro {
+            font-size: 1.1rem;
+            color: var(--cream);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .approach-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .approach-point {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .approach-point h4 {
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .approach-point p {
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* === DOMAINES D'INTERVENTION === */
+        .domains-section {
+            background: linear-gradient(135deg, var(--medium-bg), var(--dark-bg));
+            padding: 2rem 1rem;
+            border-radius: 16px;
+            margin: 2rem 0;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .domains-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .domain-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .domain-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.15);
+        }
+
+        .domain-item h4 {
+            color: var(--light-gold);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .domain-item p {
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
         /* === FAQ === */
         .faq-section {
             background: linear-gradient(135deg, var(--medium-bg), var(--dark-bg));
@@ -833,6 +919,10 @@
             .hero h2 {
                 font-size: 1.5rem;
             }
+
+            .approach-points, .domains-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 480px) {
@@ -844,7 +934,7 @@
                 padding: 1rem;
             }
             
-            .faq-section, .contact-section, .callback-section, .social-section, .newsletter-section {
+            .faq-section, .contact-section, .callback-section, .social-section, .newsletter-section, .approach-section, .domains-section {
                 padding: 1.5rem 1rem;
             }
 
@@ -963,8 +1053,9 @@
             </button>
             <ul id="main-menu">
                 <li><a href="#" class="tab-link" data-tab="accueil">Accueil</a></li>
+                <li><a href="#" class="tab-link" data-tab="apropos">À propos</a></li>
                 <li><a href="#" class="tab-link" data-tab="formations">Nos formations</a></li>
-                <li><a href="#" class="tab-link" data-tab="leviers">Nos leviers</a></li>
+                <li><a href="#" class="tab-link" data-tab="domaines">Domaines d'intervention</a></li>
                 <li><a href="#" class="tab-link" data-tab="faq">FAQ</a></li>
                 <li><a href="#" class="tab-link" data-tab="contact">Contact</a></li>
                 <li><a href="Catalogue 2025.pdf" class="catalog-btn" target="_blank" rel="noopener">CATALOGUE 2025</a></li>
@@ -1059,24 +1150,68 @@
                 </section>
             </div>
 
+            <!-- ONGLET À PROPOS -->
+            <div id="apropos" class="tab-content">
+                <section class="approach-section animate-in">
+                    <h2 class="section-title">Mon approche</h2>
+                    <div class="approach-content">
+                        <p class="approach-intro">
+                            Depuis 2015, je me passionne pour la pédagogie, la transmission des savoirs et l'accompagnement des apprenants.
+                        </p>
+                        
+                        <div class="approach-points">
+                            <div class="approach-point">
+                                <h4>Pédagogie active, concrète et inclusive</h4>
+                                <p>Des méthodes qui engagent véritablement les participants, favorisent l'apprentissage par la pratique et s'adaptent à tous les profils d'apprenants.</p>
+                            </div>
+                            
+                            <div class="approach-point">
+                                <h4>Individualisation des parcours</h4>
+                                <p>Chaque formation est adaptée aux besoins spécifiques de vos équipes et de votre organisation pour un impact maximal.</p>
+                            </div>
+                            
+                            <div class="approach-point">
+                                <h4>Accompagnement personnalisé</h4>
+                                <p>Un suivi individualisé qui assure l'ancrage des compétences et le transfert effectif en situation professionnelle.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION RAPPEL -->
+                <section class="callback-section animate-in">
+                    <h2>Envie d'en savoir plus sur mon approche ?</h2>
+                    <p>Discutons de vos besoins spécifiques lors d'un appel de 30 minutes pour voir comment ma méthodologie peut répondre à vos attentes.</p>
+                    
+                    <div class="button-container">
+                        <a href="https://calendly.com/contact-atkanconsulting/30min" 
+                           class="btn callback-button" 
+                           target="_blank" 
+                           rel="noopener">
+                           <span aria-hidden="true">🗓️</span> Prendre rendez-vous
+                        </a>
+                    </div>
+                </section>
+            </div>
+
             <!-- ONGLET FORMATIONS -->
             <div id="formations" class="tab-content">
                 <h2 class="section-title">Nos formations spécialisées</h2>
                 
                 <div class="services">
                     <article class="service">
-                        <h3>Pédagogies Actives et Apprentissage</h3>
-                        <p>Comprendre et expérimenter la classe inversée, la pédagogie par projet et coopérative. Outils : Canva, Padlet, Genially, Quizizz</p>
+                        <h3>Conception de parcours blended learning et e-learning</h3>
+                        <p>Création de dispositifs de formation mixant présentiel et distanciel, intégrant les meilleures pratiques pédagogiques et les outils numériques adaptés.</p>
                     </article>
                     
                     <article class="service">
-                        <h3>Formation avec l'IA Générative</h3>
-                        <p>Créer des supports avec ChatGPT, Notion AI, Gemini, et comprendre les enjeux éthiques de l'IA.</p>
+                        <h3>Ingénierie pédagogique, gestion de projet & soft skills</h3>
+                        <p>Développement des compétences clés pour concevoir, piloter et animer des projets de formation efficaces, tout en renforçant les compétences comportementales.</p>
                     </article>
                     
                     <article class="service">
-                        <h3>Classe virtuelle efficace</h3>
-                        <p>Structurer un parcours à distance, animer et suivre une classe virtuelle participative. Outils : Zoom, Teams, Klaxoon, Classroom</p>
+                        <h3>Formation des formateurs / accompagnement au changement</h3>
+                        <p>Accompagnement des formateurs dans l'évolution de leurs pratiques et gestion du changement dans les organisations pour une transformation durable.</p>
                     </article>
                 </div>
 
@@ -1096,28 +1231,48 @@
                 </section>
             </div>
 
-            <!-- ONGLET LEVIERS -->
-            <div id="leviers" class="tab-content">
-                <h2 class="section-title">Nos leviers d'action</h2>
-                <div class="services">
-                    <article class="service">
-                        <h3>Pédagogies innovantes</h3>
-                        <p>Favoriser l'engagement par des méthodes actives, expérientielles et adaptées à vos contextes.</p>
-                    </article>
-                    <article class="service">
-                        <h3>Formations sur mesure</h3>
-                        <p>Des parcours ciblés, conçus autour de vos besoins opérationnels et de vos priorités stratégiques.</p>
-                    </article>
-                    <article class="service">
-                        <h3>Cohésion & coopération</h3>
-                        <p>Recréer la confiance, fluidifier les relations et renforcer le travail collectif au quotidien.</p>
-                    </article>
-                </div>
+            <!-- ONGLET DOMAINES D'INTERVENTION -->
+            <div id="domaines" class="tab-content">
+                <section class="domains-section animate-in">
+                    <h2 class="section-title">Domaines d'intervention</h2>
+                    
+                    <div class="domains-grid">
+                        <div class="domain-item">
+                            <h4>Gestion de projet</h4>
+                            <p>Conception et pilotage de projets de formation et de transformation</p>
+                        </div>
+                        
+                        <div class="domain-item">
+                            <h4>Formation</h4>
+                            <p>Développement des compétences et accompagnement des apprenants</p>
+                        </div>
+                        
+                        <div class="domain-item">
+                            <h4>Formation en entreprise</h4>
+                            <p>Solutions sur mesure adaptées aux enjeux spécifiques des organisations</p>
+                        </div>
+                        
+                        <div class="domain-item">
+                            <h4>Diversité et intégration</h4>
+                            <p>Promotion de l'inclusion et gestion des diversités en milieu professionnel</p>
+                        </div>
+                        
+                        <div class="domain-item">
+                            <h4>Consolidation d'équipe</h4>
+                            <p>Renforcement de la cohésion et amélioration de la collaboration</p>
+                        </div>
+                        
+                        <div class="domain-item">
+                            <h4>Coaching de cadres</h4>
+                            <p>Accompagnement personnalisé des managers et dirigeants</p>
+                        </div>
+                    </div>
+                </section>
 
                 <!-- SECTION RAPPEL -->
                 <section class="callback-section animate-in">
-                    <h2>Envie d'explorer nos leviers d'action ?</h2>
-                    <p>Discutons de vos besoins spécifiques lors d'un appel de 30 minutes pour voir comment nos approches peuvent transformer votre organisation.</p>
+                    <h2>Un projet dans l'un de ces domaines ?</h2>
+                    <p>Discutons de vos besoins spécifiques lors d'un appel de 30 minutes pour voir comment je peux vous accompagner.</p>
                     
                     <div class="button-container">
                         <a href="https://calendly.com/contact-atkanconsulting/30min" 
@@ -1674,7 +1829,7 @@
             }, observerOptions);
 
             // Observer les éléments avec animation
-            document.querySelectorAll('.service, .hero, .faq-section, .contact-section, .callback-section, .social-section, .newsletter-section').forEach(el => {
+            document.querySelectorAll('.service, .hero, .faq-section, .contact-section, .callback-section, .social-section, .newsletter-section, .approach-section, .domains-section').forEach(el => {
                 el.style.opacity = '0';
                 el.style.transform = 'translateY(20px)';
                 el.style.transition = 'all 0.6s ease-out';
